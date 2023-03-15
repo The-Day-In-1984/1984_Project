@@ -7,14 +7,16 @@ assignees: ''
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+# Feature: 개발 예정 기능을 적어주세요
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+## Description
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+해당 기능에 대한 설명 자세하게
 
-**Additional context**
-Add any other context or screenshots about the feature request here.
+## Todo
+
+- [ ] ex) PlayerController.cs 작성
+
+## ETC
+
+그 외
