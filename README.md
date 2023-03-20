@@ -1,8 +1,9 @@
+
 # 1984 프로젝트 사용 방법
 
 기본적인 프로젝트에 관여하는 방법에 대한 설명입니다.
 
-- <https://github.com/The-Day-In-1984/1984_Project/issues/17>
+- https://github.com/The-Day-In-1984/1984_Project/issues/17
 
 전에 이슈로 적어놓은 내용 + 구체화입니다..
 
@@ -14,7 +15,7 @@ Root기준으로 [1984](https://github.com/The-Day-In-1984/1984_Project/tree/mai
 
 ### 유니티 폴더 구조
 
-- <https://github.com/The-Day-In-1984/1984_Project/discussions/14>
+- https://github.com/The-Day-In-1984/1984_Project/discussions/14
 
 해당 구조를 참고하여 제작
 
@@ -69,7 +70,7 @@ Root기준으로 [1984](https://github.com/The-Day-In-1984/1984_Project/tree/mai
 5. 종속적인 기능 ex)Manager는 해당 브랜치로 전환하여 작성 후 병합
 6. 풀리퀘가 생성되면 리뷰를 남은 사람을 등록하고 가능하다면 코드 리뷰형식으로 진행
 
-풀리퀘도 이슈와 같은 작성방식을 가져감
+풀리퀘도 이슈와 같은 작성방식을 가져감 
 
 해당 이슈와 바인딩하여 작성, 내용은 상세하게 바로 병합하지 않고 리뷰를 받고 확인되면 병합
 
@@ -94,3 +95,7 @@ Root기준으로 [1984](https://github.com/The-Day-In-1984/1984_Project/tree/mai
 ---
 
 *아직까지는 진행하며 전체적인 틀을 맞춰가는 단계라 적혀있는 내용이 전부 수정될 수 있습니다..!*
+
+
+
+
