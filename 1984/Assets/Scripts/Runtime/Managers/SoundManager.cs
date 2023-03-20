@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class SoundManager
 {
-    
+    private int a;
 }
