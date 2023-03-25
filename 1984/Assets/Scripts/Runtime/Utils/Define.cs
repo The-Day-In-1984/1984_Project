@@ -19,6 +19,12 @@ namespace Structs
         public int score;
         public int level;
     }
+
+    struct DialogueData
+    {
+        public string name;
+        public string script;
+    }
 }
 
 namespace Const
