@@ -9,6 +9,14 @@ namespace Enums
         Pause,
         End,
     }
+
+    enum DialogueHeader
+    {
+        Scene,
+        Branch,
+        Name,
+        Script,
+    }
 }
 
 namespace Structs
@@ -20,10 +28,16 @@ namespace Structs
         public int level;
     }
 
-    struct DialogueData
+    public struct DialogueData
     {
         public string name;
         public string script;
+
+        public DialogueData(string name, string script)
+        {
+            this.name = name;
+            this.script = script;
+        }
     }
 }
 
