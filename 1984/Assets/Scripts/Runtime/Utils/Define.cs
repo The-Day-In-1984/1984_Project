@@ -9,14 +9,6 @@ namespace Enums
         Pause,
         End,
     }
-
-    enum DialogueHeader
-    {
-        Scene,
-        Branch,
-        Name,
-        Script,
-    }
 }
 
 namespace Structs
@@ -30,8 +22,8 @@ namespace Structs
 
     public struct DialogueData
     {
-        public string name;
-        public string script;
+        public readonly string name;
+        public readonly string script;
 
         public DialogueData(string name, string script)
         {
@@ -48,5 +40,10 @@ namespace Const
     {
         public const int MAX_SCORE = 100;
         public const int MAX_LEVEL = 10;
+
+        public const int SCENE = 0;
+        public const int BRANCH = 1;
+        public const int NAME = 2;
+        public const int SCRIPT = 3;
     }
 }
