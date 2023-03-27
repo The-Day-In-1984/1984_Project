@@ -15,7 +15,7 @@ public class CSVToUnityTest : MonoBehaviour
         {
             foreach (var list in value.Value)
             {
-                Debug.Log(list.name + " : " + list.script);
+                Debug.Log(list.name + "\n" + list.script);
             }
         }
     }
