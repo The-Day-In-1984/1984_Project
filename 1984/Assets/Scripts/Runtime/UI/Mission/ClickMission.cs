@@ -6,7 +6,7 @@ public class ClickMission : MonoBehaviour, IMission, IPointerClickHandler
     [Header("MissionController")]
     [SerializeField] private MissionController missionController;
 
-    [Header("Target Value")]
+    [Header("Target")]
     [SerializeField] private int successValue = 5;
 
     private int _clickCount;
@@ -32,6 +32,9 @@ public class ClickMission : MonoBehaviour, IMission, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (IsCompleted)
+            return;
+
         _clickCount++;
 
         if (_clickCount >= successValue)

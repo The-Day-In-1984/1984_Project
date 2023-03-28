@@ -6,7 +6,7 @@ public class DragMission : MonoBehaviour, IMission, IDragHandler, IEndDragHandle
     [Header("MissionController")]
     [SerializeField] private MissionController missionController;
 
-    [Header("Target Location")] 
+    [Header("Target")] 
     [SerializeField] private Transform target;
     [SerializeField] private float successDistance = 20f;
     
@@ -30,6 +30,9 @@ public class DragMission : MonoBehaviour, IMission, IDragHandler, IEndDragHandle
     
     public void OnDrag(PointerEventData eventData)
     {
+        if (IsCompleted)
+            return;
+
         gameObject.transform.position = eventData.position;
 
         var distance = Vector3.Distance(transform.position, target.position);
