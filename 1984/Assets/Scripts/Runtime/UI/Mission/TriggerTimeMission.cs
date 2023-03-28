@@ -1,15 +1,20 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class DragMission : MonoBehaviour, IMission, IDragHandler, IEndDragHandler
-{
+public class TriggerTimeMission : MonoBehaviour, IMission
+{ 
     [Header("MissionController")]
     [SerializeField] private MissionController missionController;
 
-    [Header("Target")] 
+    [Header("Target")]
     [SerializeField] private Transform target;
-    [SerializeField] private float successDistance = 20f;
-    
+    [SerializeField] private float successValue = 2f;
+    [SerializeField] private float successDistance = 10f;
+
+    private float _curTime;
+
     public bool IsCompleted { get; private set; }
     
     private void Awake()
@@ -27,24 +32,25 @@ public class DragMission : MonoBehaviour, IMission, IDragHandler, IEndDragHandle
         IsCompleted = true;
         missionController.CheckAllMissionsComplete();
     }
-    
-    public void OnDrag(PointerEventData eventData)
+
+    private void Update()
     {
         if (IsCompleted)
             return;
-
-        gameObject.transform.position = eventData.position;
 
         var distance = Vector3.Distance(transform.position, target.position);
         
         if (distance <= successDistance)
         {
-            OnMissionComplete();
+            _curTime += Time.deltaTime;
+            if (_curTime >= successValue)
+            {
+                OnMissionComplete();
+            }
         }
-    }
-
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        // temp
+        else
+        {
+            _curTime = 0;
+        }
     }
 }
