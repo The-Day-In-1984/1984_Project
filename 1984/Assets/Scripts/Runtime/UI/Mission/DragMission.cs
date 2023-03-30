@@ -35,7 +35,7 @@ public class DragMission : MonoBehaviour, IMission, IDragHandler, IEndDragHandle
 
         gameObject.transform.position = eventData.position;
 
-        var distance = Vector3.Distance(transform.position, target.position);
+        float distance = Vector3.Distance(transform.position, target.position);
         
         if (distance <= successDistance)
         {
