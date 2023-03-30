@@ -38,7 +38,7 @@ public class TriggerTimeMission : MonoBehaviour, IMission
         if (IsCompleted)
             return;
 
-        var distance = Vector3.Distance(transform.position, target.position);
+        float distance = Vector3.Distance(transform.position, target.position);
         
         if (distance <= successDistance)
         {
