@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9c0bc139-f904-45a3-8aec-357e03baecc1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.1984/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.1984/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/Mission/MoneyMission.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/Mission/MoneyMission.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/JA/JAScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/JA/JAScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Mission/ClickMission.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Mission/ClickMission.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Mission/DragMission.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Runtime/UI/Mission/DragMission.cs" afterDir="false" />
-    </list>
+    <list default="true" id="9c0bc139-f904-45a3-8aec-357e03baecc1" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -93,6 +87,7 @@
       <workItem from="1679894628990" duration="302000" />
       <workItem from="1679894952333" duration="562000" />
       <workItem from="1679986871682" duration="967000" />
+      <workItem from="1680146415978" duration="416000" />
     </task>
     <servers />
   </component>
