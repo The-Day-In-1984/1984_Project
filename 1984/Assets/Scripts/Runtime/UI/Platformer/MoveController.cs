@@ -24,12 +24,12 @@ public class MoveController : MonoBehaviour
         // long jump
         if (Input.GetKey(KeyCode.Space))
         {
-            movement.isLongJump(true);
+            movement.LongJump(true);
 
         }
         else if (Input.GetKeyUp(KeyCode.Space))
         {
-            movement.isLongJump(false);
+            movement.LongJump(false);
         }
 
     }
