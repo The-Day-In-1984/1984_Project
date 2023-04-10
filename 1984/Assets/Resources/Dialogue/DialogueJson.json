@@ -1,57 +1,42 @@
-{
-"Dialogue":[
+[
  {
-  "Scene": "파슨스와 만남",
-  "Branch": 1,
-  "Name": "윈스턴",
-  "Script": "안녕하세요,,\r\n만,,나서 반갑,,습니다.,,"
+  "id": 0,
+  "character": "윈스턴",
+  "text": "안녕하세요,,\r\n만,,나서 반갑,,습니다.,,"
  },
  {
-  "Scene": "파슨스와 만남",
-  "Branch": 1,
-  "Name": "파슨스",
-  "Script": "네, 반가워요"
+  "id": 1,
+  "character": "파슨스",
+  "text": "네, 반가워요"
  },
  {
-  "Scene": "파슨스와 만남",
-  "Branch": 1,
-  "Name": "선택지",
-  "Script": "식사는 하셨나요?"
+  "id": 2,
+  "character": "선택지",
+  "text": "식사는 하셨나요?"
  },
  {
-  "Scene": "파슨스와 만남",
-  "Branch": 1,
-  "Name": "선택지",
-  "Script": "피곤하세요?"
+  "id": 3,
+  "character": "선택지",
+  "text": "피곤하세요?"
  },
  {
-  "Scene": "파슨스와 만남",
-  "Branch": 1,
-  "Name": "선택지",
-  "Script": "이만 가보겠습니다."
+  "id": 4,
+  "character": "선택지",
+  "text": "이만 가보겠습니다."
  },
  {
-  "Scene": "파슨스와 만남",
-  "Branch": "1_1",
-  "Name": "파슨스",
-  "Script": "아직 안먹었습니다."
+  "id": 5,
+  "character": "파슨스",
+  "text": "아직 안먹었습니다."
  },
  {
-  "Scene": "파슨스와 만남",
-  "Branch": "1_2",
-  "Name": "파슨스",
-  "Script": "오늘따라 피곤하네요."
+  "id": 6,
+  "character": "파슨스",
+  "text": "오늘따라 피곤하네요."
  },
  {
-  "Scene": "파슨스와 만남",
-  "Branch": "1_3",
-  "Name": "파슨스",
-  "Script": "안녕히가세요."
- }
-],
-"asd":[
- {
-  "Column3": "asd"
+  "id": 7,
+  "character": "파슨스",
+  "text": "안녕히가세요."
  }
 ]
-}
