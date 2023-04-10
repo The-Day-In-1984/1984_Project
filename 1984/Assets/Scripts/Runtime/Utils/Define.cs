@@ -19,19 +19,19 @@ namespace Structs
         public int score;
         public int level;
     }
-    struct DialogueData
+    public struct DialogueData
     {
+        public string id;
         public string character;
         public string text;
     }
-}
+} 
 
 namespace Const
 {
     //test
     static class Consts
     {
-        public const int MAX_SCORE = 100;
-        public const int MAX_LEVEL = 10;
+        public const string ResourcesDialogueJsonPath = "Dialogue/DialogueJson";
     }
 }
