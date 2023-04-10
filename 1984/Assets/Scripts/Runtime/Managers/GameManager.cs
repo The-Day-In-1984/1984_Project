@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
             _instance = go.GetComponent<GameManager>();
             
             // 추가적인 매니저 초기화
+            _instance._data.Init();
         }
     }
 
