@@ -19,6 +19,18 @@ namespace Structs
         public int score;
         public int level;
     }
+
+    public struct DialogueData
+    {
+        public readonly string name;
+        public readonly string script;
+
+        public DialogueData(string name, string script)
+        {
+            this.name = name;
+            this.script = script;
+        }
+    }
 }
 
 namespace Const
@@ -28,5 +40,10 @@ namespace Const
     {
         public const int MAX_SCORE = 100;
         public const int MAX_LEVEL = 10;
+
+        public const int SCENE = 0;
+        public const int BRANCH = 1;
+        public const int NAME = 2;
+        public const int SCRIPT = 3;
     }
 }
