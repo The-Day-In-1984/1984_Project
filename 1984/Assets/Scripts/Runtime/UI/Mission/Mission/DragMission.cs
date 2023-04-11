@@ -1,20 +1,24 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DragMission : MonoBehaviour, IMission, IDragHandler, IEndDragHandler
+public class DragMission : MonoBehaviour, IMission, IDragHandler
 {
-    [Header("MissionController")]
-    [SerializeField] private MissionController missionController;
-
     [Header("Target")] 
     [SerializeField] private Transform target;
     [SerializeField] private float successDistance = 20f;
+    
+    private MissionController _missionController;
+    private DistanceLogic _distanceLogic;
     
     public bool IsCompleted { get; private set; }
     
     private void Awake()
     {
-        missionController.AddMission(this);
+        _missionController = GetComponentInParent<MissionController>();
+        _missionController.AddMission(this);
+        
+        _distanceLogic = new DistanceLogic(this.transform, target, successDistance);
+        _distanceLogic.OnSuccess += OnMissionComplete;
     }
 
     public void OnMissionStart()
@@ -25,7 +29,7 @@ public class DragMission : MonoBehaviour, IMission, IDragHandler, IEndDragHandle
     public void OnMissionComplete()
     {
         IsCompleted = true;
-        missionController.CheckAllMissionsComplete();
+        _missionController.CheckAllMissionsComplete();
     }
     
     public void OnDrag(PointerEventData eventData)
@@ -35,16 +39,6 @@ public class DragMission : MonoBehaviour, IMission, IDragHandler, IEndDragHandle
 
         gameObject.transform.position = eventData.position;
 
-        float distance = Vector3.Distance(transform.position, target.position);
-        
-        if (distance <= successDistance)
-        {
-            OnMissionComplete();
-        }
-    }
-
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        // temp
+        _distanceLogic.DistanceCalculation();
     }
 }
