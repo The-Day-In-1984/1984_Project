@@ -1,10 +1,9 @@
-
 using System.Collections.Generic;
 using Structs;
 public class DataManager
 {
-    public Dictionary<string, List<DialogueData>> DialogueData { get; private set; } = new();
-    private readonly JsonToDictionaryConverter<DialogueData> _jsonToDictionaryConverter = new();
+    public Dictionary<string, List<DialogueData>> DialogueData { get; private set; } = new Dictionary<string, List<DialogueData>>();
+    private readonly JsonToDictionaryConverter<DialogueData> _jsonToDictionaryConverter = new JsonToDictionaryConverter<DialogueData>();
 
     public void Init()
     {

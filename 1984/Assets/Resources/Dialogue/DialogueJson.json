@@ -1,42 +1,42 @@
 [
  {
-  "id": 0,
-  "character": "윈스턴",
-  "text": "안녕하세요,,\r\n만,,나서 반갑,,습니다.,,"
+  "Id": 0,
+  "Character": "윈스턴",
+  "Text": "안녕하세요,,\r\n만,,나서 반갑,,습니다.,,"
  },
  {
-  "id": 1,
-  "character": "파슨스",
-  "text": "네, 반가워요"
+  "Id": 1,
+  "Character": "파슨스",
+  "Text": "네, 반가워요"
  },
  {
-  "id": 2,
-  "character": "선택지",
-  "text": "식사는 하셨나요?"
+  "Id": 2,
+  "Character": "선택지",
+  "Text": "식사는 하셨나요?"
  },
  {
-  "id": 3,
-  "character": "선택지",
-  "text": "피곤하세요?"
+  "Id": 3,
+  "Character": "선택지",
+  "Text": "피곤하세요?"
  },
  {
-  "id": 4,
-  "character": "선택지",
-  "text": "이만 가보겠습니다."
+  "Id": 4,
+  "Character": "선택지",
+  "Text": "이만 가보겠습니다."
  },
  {
-  "id": 5,
-  "character": "파슨스",
-  "text": "아직 안먹었습니다."
+  "Id": 5,
+  "Character": "파슨스",
+  "Text": "아직 안먹었습니다."
  },
  {
-  "id": 6,
-  "character": "파슨스",
-  "text": "오늘따라 피곤하네요."
+  "Id": 6,
+  "Character": "파슨스",
+  "Text": "오늘따라 피곤하네요."
  },
  {
-  "id": 7,
-  "character": "파슨스",
-  "text": "안녕히가세요."
+  "Id": 7,
+  "Character": "파슨스",
+  "Text": "안녕히가세요."
  }
 ]

@@ -19,11 +19,11 @@ namespace Structs
         public int score;
         public int level;
     }
-    public struct DialogueData
+    public struct DialogueData : IJsonData
     {
-        public string id;
-        public string character;
-        public string text;
+        public string Id { get; set; }
+        public string character { get; set; }
+        public string Text { get; set; }
     }
 } 
 
