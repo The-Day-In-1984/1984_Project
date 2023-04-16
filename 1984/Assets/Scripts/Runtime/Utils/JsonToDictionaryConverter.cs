@@ -3,47 +3,50 @@ using Const;
 using Newtonsoft.Json;
 using UnityEngine;
 
-public class JsonToDictionaryConverter<T> where T : IJsonData
+public class JsonDataConverter<T> where T : IJsonData
 {
-    public Dictionary<string, List<T>> GetDictionary(string path = Consts.ResourcesDialogueJsonPath)
+    public Dictionary<string, List<T>> GetDictionaryfromJson(string path)
     {
         var dictionary = new Dictionary<string, List<T>>();
-        string errorMessage = "JSON not found!";
-        TextAsset json = LoadJson(path, errorMessage);
-
-        if (json != null)
-        {
-            ConvertJsonToDictionary(dictionary, json.text);
-        }
+        TextAsset json = LoadJsonFile(path);
+        if (IsJsonNull(json)) return null;
+        
+        List<T> dataList = DeserializeJson(json.text);
+        FillDictionary(dictionary, dataList);
         return dictionary;
     }
-
-    private TextAsset LoadJson(string path, string errorMessage)
+    private TextAsset LoadJsonFile(string path)
     {
         TextAsset json = Resources.Load<TextAsset>(path);
-        if (json == null)
-        {
-            Debug.LogError(errorMessage);
-        }
         return json;
     }
-
-    private void ConvertJsonToDictionary(Dictionary<string, List<T>> dictionary, string jsonText)
+    
+    private bool IsJsonNull(TextAsset json)
     {
-        List<T> jsonData = JsonConvert.DeserializeObject<List<T>>(jsonText);
-        AddDictionary(dictionary, jsonData);
+        if (json != null) return false;
+        Debug.LogError("JSON not found!");
+        return true;
     }
 
-    private void AddDictionary(Dictionary<string, List<T>> dictionary, List<T> jsonData)
+    private List<T> DeserializeJson(string jsonText)
     {
-        foreach (var data in jsonData)
+        return JsonConvert.DeserializeObject<List<T>>(jsonText);
+    }
+
+    private void FillDictionary(Dictionary<string, List<T>> dictionary, List<T> dataList)
+    {
+        foreach (var data in dataList)
         {
-            string id = data.Id;
-            if (!dictionary.ContainsKey(id))
-            {
-                dictionary[id] = new List<T>();
-            }
-            dictionary[id].Add(data);
+            AddDataToDictionary(dictionary, data);
         }
+    }
+    private void AddDataToDictionary(Dictionary<string, List<T>> dictionary, T data)
+    {
+        string id = data.Id;
+        if (!dictionary.ContainsKey(id))
+        {
+            dictionary[id] = new List<T>();
+        }
+        dictionary[id].Add(data);
     }
 }

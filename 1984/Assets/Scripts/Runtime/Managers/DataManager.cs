@@ -3,7 +3,7 @@ using Structs;
 public class DataManager
 {
     public Dictionary<string, List<DialogueData>> DialogueData { get; private set; } = new Dictionary<string, List<DialogueData>>();
-    private readonly JsonToDictionaryConverter<DialogueData> _jsonToDictionaryConverter = new JsonToDictionaryConverter<DialogueData>();
+    private readonly JsonDataConverter<DialogueData> _jsonToDictionaryConverter = new JsonDataConverter<DialogueData>();
 
     public void Init()
     {
@@ -12,6 +12,6 @@ public class DataManager
 
     private void LoadDialogueData()
     {
-        DialogueData = _jsonToDictionaryConverter.GetDictionary(Const.Consts.ResourcesDialogueJsonPath);
+        DialogueData = _jsonToDictionaryConverter.GetDictionaryfromJson(Const.Consts.ResourcesDialogueJsonPath);
     }
 }
