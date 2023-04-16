@@ -14,10 +14,10 @@ public class JsonDataConverter<T> where T : IJsonData
         List<T> dataList = DeserializeJson(json.text);
         FillDictionary(dictionary, dataList);
         return dictionary;
-    }
+    } 
     private TextAsset LoadJsonFile(string path)
     {
-        TextAsset json = Resources.Load<TextAsset>(path);
+        var json = Resources.Load<TextAsset>(path);
         return json;
     }
     

@@ -22,8 +22,8 @@ namespace Structs
     public struct DialogueData : IJsonData
     {
         public string Id { get; set; }
-        public string character { get; set; }
-        public string Text { get; set; }
+        public string Character { get; set;}
+        public string Text { get;  set;}
     }
 } 
 
