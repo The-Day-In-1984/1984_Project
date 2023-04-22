@@ -12,28 +12,28 @@ public class ClimbState : IState
     private float keyVertical;
     private GameObject ladder;
     public Vector3 ladderPos;
-    public Vector3 nowPos;
+    public Vector3 playerPos;
 
-    public ClimbState(PlayerStateController playerStateController, PlayerMoveTracker playerMoveTracker, Rigidbody2D rigidbody)
+    public ClimbState(PlayerStateController playerStateController, PlayerMoveTracker playerMoveTracker, Rigidbody2D rigidbody2D)
     {
         this.stateController = playerStateController;
         this.moveTracker = playerMoveTracker;
-        this.rigidbody = rigidbody;
+        this.rigidbody = rigidbody2D;
     }
 
     public void Enter()
     {
         Debug.Log("Climb Enter()");
         moveTracker.isClimbing = true;
-        ladder = moveTracker.ladder;
+        ladder = moveTracker.ladderObj;
         // Climb 애니메이션 실행
         //ladder = characterStateManager.playerMove.ladder;
         ladderPos = ladder.transform.position;
 
         rigidbody.bodyType = RigidbodyType2D.Kinematic;
         rigidbody.velocity = Vector2.zero;
-        nowPos = stateController.transform.position;
-        stateController.transform.position = Vector3.MoveTowards(nowPos, new Vector3(ladderPos.x, nowPos.y, 0), 0.6f);
+        playerPos = stateController.transform.position;
+        stateController.transform.position = Vector3.MoveTowards(playerPos, new Vector3(ladderPos.x, playerPos.y, 0), 0.6f);
 
     }
 
@@ -57,7 +57,7 @@ public class ClimbState : IState
         }
         else
         {
-            nowPos = stateController.transform.position;
+            playerPos = stateController.transform.position;
 
             Vector2 climbVelocity = new Vector2(0f, keyVertical * climbSpeed);
             rigidbody.velocity = climbVelocity;
@@ -66,11 +66,11 @@ public class ClimbState : IState
         if (moveTracker.isGrounded)
         {
             //내려감
-            if (keyVertical < 0 && nowPos.y < ladderPos.y)
+            if (keyVertical < 0 && playerPos.y < ladderPos.y)
                 stateController.ChangeState(PLAYER_STATE.IDLE);
 
             //올라감
-            if (keyVertical > 0 && nowPos.y > ladderPos.y)
+            if (keyVertical > 0 && playerPos.y > ladderPos.y)
                 stateController.ChangeState(PLAYER_STATE.IDLE);
         }
     }
@@ -81,6 +81,5 @@ public class ClimbState : IState
         // Climb 애니메이션 정지
         rigidbody.bodyType = RigidbodyType2D.Dynamic;
         stateController.playerMoveTracker.isClimbing = false;
-
     }
 }

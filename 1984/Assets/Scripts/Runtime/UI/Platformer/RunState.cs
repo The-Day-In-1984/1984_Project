@@ -15,16 +15,16 @@ public class RunState : IState
     private GameObject ladder;
     public Vector3 ladderPos;
 
-    public RunState(PlayerStateController playerStateController, PlayerMoveTracker playerMoveTracker, Rigidbody2D rigidbody)
+    public RunState(PlayerStateController playerStateController, PlayerMoveTracker playerMoveTracker, Rigidbody2D rigidbody2D)
     {
         this.stateController = playerStateController;
         this.moveTracker = playerMoveTracker;
-        this.rigidbody = rigidbody;
+        this.rigidbody = rigidbody2D;
     }
 
     public void Enter()
     {
-        Debug.Log("Run Enter()");
+        //Debug.Log("Run Enter()");
         // Run 애니메이션 실행
 
     }
@@ -61,14 +61,14 @@ public class RunState : IState
 
         if (keyVertical != 0 && moveTracker.isNearLadder && !moveTracker.isClimbing)
         {
-            ladder = moveTracker.ladder;
+            ladder = moveTracker.ladderObj;
             ladderPos = ladder.transform.position;
 
-            //내려감
+            //사다리 내려감
             if (keyVertical < 0 && nowPos.y > ladderPos.y)
                 stateController.ChangeState(PLAYER_STATE.CLIMB);
 
-            //올라감
+            //사다리 올라감
             if (keyVertical > 0 && nowPos.y < ladderPos.y)
                 stateController.ChangeState(PLAYER_STATE.CLIMB);
 

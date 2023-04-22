@@ -15,11 +15,11 @@ public class IdleState : IState
     public Vector3 nowPos;
     public Vector3 ladderPos;
 
-    public IdleState(PlayerStateController playerStateController, PlayerMoveTracker playerMoveTracker, Rigidbody2D rigidbody)
+    public IdleState(PlayerStateController playerStateController, PlayerMoveTracker playerMoveTracker, Rigidbody2D rigidbody2D)
     {
         this.stateController = playerStateController;
         this.moveTracker = playerMoveTracker;
-        this.rigidbody = rigidbody;
+        this.rigidbody = rigidbody2D;
     }
 
     public void Enter()
@@ -55,7 +55,7 @@ public class IdleState : IState
          
         if (keyVertical != 0 && moveTracker.isNearLadder && !moveTracker.isClimbing)
         {
-            ladder = moveTracker.ladder;
+            ladder = moveTracker.ladderObj;
             ladderPos = ladder.transform.position;
 
             //내려감

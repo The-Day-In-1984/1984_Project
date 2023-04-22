@@ -8,7 +8,7 @@ public class PlayerMoveTracker : MonoBehaviour
     public bool isClimbing;
     public bool isGrounded;
     [HideInInspector]
-    public GameObject ladder;
+    public GameObject ladderObj;
     private CapsuleCollider2D coll;
     private LayerMask groundLayer;
      
@@ -30,7 +30,7 @@ public class PlayerMoveTracker : MonoBehaviour
         if (other.gameObject.CompareTag("Ladder"))
         {
             isNearLadder = true;
-            ladder = other.gameObject;
+            ladderObj = other.gameObject;
         }
     }
 
@@ -39,7 +39,7 @@ public class PlayerMoveTracker : MonoBehaviour
         if (other.gameObject.CompareTag("Ladder"))
         {
             isNearLadder = false;
-            ladder = null;
+            ladderObj = null;
         }
     }
 

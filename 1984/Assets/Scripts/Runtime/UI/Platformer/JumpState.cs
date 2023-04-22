@@ -14,11 +14,11 @@ public class JumpState : IState
     private bool keySpace;
 
 
-    public JumpState(PlayerStateController playerStateController, PlayerMoveTracker playerMoveTracker, Rigidbody2D rigidbody)
+    public JumpState(PlayerStateController playerStateController, PlayerMoveTracker playerMoveTracker, Rigidbody2D rigidbody2D)
     {
         this.stateController = playerStateController;
         this.moveTracker = playerMoveTracker;
-        this.rigidbody = rigidbody;
+        this.rigidbody = rigidbody2D;
     }
 
     public void Enter()
