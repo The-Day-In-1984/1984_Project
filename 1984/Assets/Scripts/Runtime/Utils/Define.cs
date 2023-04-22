@@ -5,10 +5,10 @@ namespace Enums
     {
         None,
         Start,
-        Playing,
+        Playing, 
         Pause,
         End,
-    }
+    } 
 }
 
 namespace Structs

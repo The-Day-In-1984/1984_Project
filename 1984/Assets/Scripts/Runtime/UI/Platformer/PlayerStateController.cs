@@ -1,0 +1,66 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+  
+public class PlayerStateController : MonoBehaviour
+{
+    private PLAYER_STATE currentPlayerState;
+    private IState currentState;
+    private Rigidbody2D rigidbody;
+    public PlayerMoveTracker playerMoveTracker;
+
+    private void Awake()
+    {  
+        // 기본 상태를 Idle로 설정
+        currentPlayerState = PLAYER_STATE.IDLE;
+        playerMoveTracker = GetComponent<PlayerMoveTracker>();
+        rigidbody = GetComponent<Rigidbody2D>();
+        currentState = new IdleState(this, playerMoveTracker, rigidbody);
+
+    }
+
+    private void Start()
+    {
+        currentState.Enter();
+    }
+
+    private void Update()
+    {
+        currentState.Execute();
+    }
+
+    private void FixedUpdate()
+    {
+        currentState.FixedExecute();
+    }
+
+    public void ChangeState(PLAYER_STATE newState)
+    {
+        // 상태 변경
+        if (currentState != null)
+        {
+            currentState.Exit();
+        }
+
+        switch (newState)
+        {
+            case PLAYER_STATE.IDLE:
+                currentState = new IdleState(this, playerMoveTracker, rigidbody);
+                break;
+
+            case PLAYER_STATE.RUN:
+                currentState = new RunState(this, playerMoveTracker, rigidbody);
+                break;
+
+            case PLAYER_STATE.JUMP:
+                currentState = new JumpState(this, playerMoveTracker, rigidbody);
+                break;
+
+            case PLAYER_STATE.CLIMB:
+                currentState = new ClimbState(this, playerMoveTracker, rigidbody);
+                break;
+        }
+        currentPlayerState = newState;
+        currentState.Enter();
+    }
+}

@@ -10,10 +10,13 @@ public class Ladder : MonoBehaviour
 
     // positions for ladder climbing logic
     [HideInInspector] public float posX;
+    [HideInInspector] public float posY;
     [HideInInspector] public float posBottomY;
     [HideInInspector] public float posTopHandlerY;
     [HideInInspector] public float posBottomHandlerY;
     [HideInInspector] public float posPlatformY;
+    Bounds bounds;
+    public float ladderMaxY, ladderMinY;
 
 
     void Awake()
@@ -28,12 +31,18 @@ public class Ladder : MonoBehaviour
         ladderBottom.position = new Vector3(transform.position.x, transform.position.y - (size.y / 2), 0);
 
         posX = transform.position.x;
+        posY = transform.position.y;
         float posTopY = ladderTop.transform.position.y;
         posBottomY = ladderBottom.transform.position.y;
         posPlatformY = ladderPlatform.transform.position.y;
         posTopHandlerY = posTopY + handlerOffset;
         posBottomHandlerY = posBottomY + handlerOffset;
+
+        bounds = GetComponent<BoxCollider2D>().bounds;
+        ladderMaxY = bounds.max.y;
+        ladderMinY = bounds.min.y;
     }
+    /*
 
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -54,4 +63,5 @@ public class Ladder : MonoBehaviour
             other.gameObject.GetComponent<PlayerController>().ladder = null;
         }
     }
+    */
 }
