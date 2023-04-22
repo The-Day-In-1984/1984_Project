@@ -7,7 +7,6 @@ public class ClimbState : IState
     private PlayerStateController stateController;
     private PlayerMoveTracker moveTracker;
     private Rigidbody2D rigidbody;
-    private CapsuleCollider2D collider;
     private readonly float climbSpeed = 5f;
     private float keyVertical;
     private GameObject ladder;
@@ -23,11 +22,11 @@ public class ClimbState : IState
 
     public void Enter()
     {
-        Debug.Log("Climb Enter()");
+        //Debug.Log("Climb Enter()");
         ladder = moveTracker.ladderObj;
-        // Climb 애니메이션 실행
         ladderPos = ladder.transform.position;
 
+        //rigidbody, position 조정
         rigidbody.bodyType = RigidbodyType2D.Kinematic;
         rigidbody.velocity = Vector2.zero;
         playerPos = stateController.transform.position;
@@ -37,37 +36,37 @@ public class ClimbState : IState
 
     public void Execute()
     {
-        Debug.Log("Climb Execute()");
+        //Debug.Log("Climb Execute()");
         keyVertical = Input.GetAxisRaw("Vertical");
 
         if (Input.GetKey(KeyCode.Space))
         {
+            //Climb -> Jump
             stateController.ChangeState(PLAYER_STATE.JUMP);
         }
     }
 
     public void FixedExecute()
     {
-        //
         if (keyVertical == 0)
         {
+            //Stop
             rigidbody.velocity = new Vector2(0f, 0f);
         }
         else
         {
-            playerPos = stateController.transform.position;
-
+            //Climb
             Vector2 climbVelocity = new Vector2(0f, keyVertical * climbSpeed);
             rigidbody.velocity = climbVelocity;
         }
 
         if (moveTracker.isGrounded)
         {
-            //내려감
+            //End of Climbing down
             if (keyVertical < 0 && playerPos.y < ladderPos.y)
                 stateController.ChangeState(PLAYER_STATE.IDLE);
 
-            //올라감
+            //End of Climbing up
             if (keyVertical > 0 && playerPos.y > ladderPos.y)
                 stateController.ChangeState(PLAYER_STATE.IDLE);
         }
@@ -75,8 +74,7 @@ public class ClimbState : IState
 
     public void Exit()
     {
-        Debug.Log("Climb Exit()");
-        // Climb 애니메이션 정지
+        //Debug.Log("Climb Exit()");
         rigidbody.bodyType = RigidbodyType2D.Dynamic;
     }
 }

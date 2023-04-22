@@ -12,7 +12,7 @@ public class IdleState : IState
     private float keyHorizontal;
     private bool keySpace;
     private GameObject ladder;
-    public Vector3 nowPos;
+    public Vector3 playerPos;
     public Vector3 ladderPos;
 
     public IdleState(PlayerStateController playerStateController, PlayerMoveTracker playerMoveTracker, Rigidbody2D rigidbody2D)
@@ -24,19 +24,20 @@ public class IdleState : IState
 
     public void Enter()
     {
-        // Idle 애니메이션 실행
-        Debug.Log("Idle Enter()");
+        //Idle
         rigidbody.velocity = new Vector2(0f, rigidbody.velocity.y);
+        playerPos = stateController.transform.position;
+        //Debug.Log("Idle Enter()");
     }
 
     public void Execute()
     {
+        //Debug.Log("Idle Execute()");
         keyVertical = Input.GetAxisRaw("Vertical");
         keyHorizontal = Input.GetAxisRaw("Horizontal");
         keySpace = Input.GetKey(KeyCode.Space);
-        nowPos = stateController.transform.position;
-        Debug.Log("Idle Execute()");
 
+        //Idle -> Jump
         if (keySpace && moveTracker.isGrounded)
         {
             stateController.ChangeState(PLAYER_STATE.JUMP);
@@ -44,11 +45,11 @@ public class IdleState : IState
     }
     public void FixedExecute()
     {
-        Debug.Log("Idle FixedExecute()");
-        // 캐릭터가 움직이지 않을 때 수행할 작업
+        //Debug.Log("Idle FixedExecute()");
 
         if (keyHorizontal != 0)
         {
+            //Idle -> Run
             stateController.ChangeState(PLAYER_STATE.RUN);
         }
 
@@ -57,19 +58,19 @@ public class IdleState : IState
             ladder = moveTracker.ladderObj;
             ladderPos = ladder.transform.position;
 
-            //내려감
-            if (keyVertical < 0 && nowPos.y > ladderPos.y)
+            //Idle -> Climb
+            //down
+            if (keyVertical < 0 && playerPos.y > ladderPos.y)
                 stateController.ChangeState(PLAYER_STATE.CLIMB);
              
-            //올라감
-            if (keyVertical > 0 && nowPos.y < ladderPos.y)
+            //up
+            if (keyVertical > 0 && playerPos.y < ladderPos.y)
                 stateController.ChangeState(PLAYER_STATE.CLIMB);
         }
     }
 
     public void Exit()
     {
-        Debug.Log("Idle Exit()");
-        // Idle 애니메이션 정지
+        //Debug.Log("Idle Exit()");
     }
 }

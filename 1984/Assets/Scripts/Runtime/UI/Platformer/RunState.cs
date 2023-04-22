@@ -10,8 +10,7 @@ public class RunState : IState
     private readonly float moveSpeed = 5f;
     private float keyHorizontal;
     private float keyVertical;
-    private bool keySpace;
-    public Vector3 nowPos;
+    public Vector3 playerPos;
     private GameObject ladder;
     public Vector3 ladderPos;
 
@@ -25,18 +24,17 @@ public class RunState : IState
     public void Enter()
     {
         //Debug.Log("Run Enter()");
-        // Run 애니메이션 실행
-
+        playerPos = stateController.transform.position;
     }
 
     public void Execute()
-    { 
+    {
+        //Debug.Log("Run Execute()");
         keyVertical = Input.GetAxisRaw("Vertical");
         keyHorizontal = Input.GetAxisRaw("Horizontal");
-        keySpace = Input.GetKey(KeyCode.Space);
-        Debug.Log("Run Execute()");
-         
-        if (keySpace && moveTracker.isGrounded)
+
+        //Run -> Jump
+        if (Input.GetKey(KeyCode.Space) && moveTracker.isGrounded)
         {
             stateController.ChangeState(PLAYER_STATE.JUMP);
         }
@@ -46,15 +44,12 @@ public class RunState : IState
     {
         if (keyHorizontal != 0)
         {
-            nowPos = stateController.transform.position;
-            keyHorizontal = Input.GetAxisRaw("Horizontal");
-
-            Vector2 runVelocity = new Vector2(keyHorizontal * moveSpeed, rigidbody.velocity.y);
-            rigidbody.velocity = runVelocity;
-
+            //Run
+            rigidbody.velocity = new Vector2(keyHorizontal * moveSpeed, rigidbody.velocity.y);
         }
-        else if (keyHorizontal == 0)
+        else
         {
+            //Idle
             rigidbody.velocity = new Vector2(0f, rigidbody.velocity.y);
             stateController.ChangeState(PLAYER_STATE.IDLE);
         }
@@ -64,12 +59,12 @@ public class RunState : IState
             ladder = moveTracker.ladderObj;
             ladderPos = ladder.transform.position;
 
-            //사다리 내려감
-            if (keyVertical < 0 && nowPos.y > ladderPos.y)
+            //Climb down
+            if (keyVertical < 0 && playerPos.y > ladderPos.y)
                 stateController.ChangeState(PLAYER_STATE.CLIMB);
 
-            //사다리 올라감
-            if (keyVertical > 0 && nowPos.y < ladderPos.y)
+            //Climb up
+            if (keyVertical > 0 && playerPos.y < ladderPos.y)
                 stateController.ChangeState(PLAYER_STATE.CLIMB);
 
         }
@@ -77,8 +72,6 @@ public class RunState : IState
 
     public void Exit()
     {
-        // Run 애니메이션 정지
-        Debug.Log("Run Exit()");
-
+        //Debug.Log("Run Exit()");
     }
 }

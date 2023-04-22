@@ -7,6 +7,7 @@ public class PlayerStateController : MonoBehaviour
     private PLAYER_STATE currentPlayerState;
     private IState currentState;
     private Rigidbody2D rigidbody2D;
+    [HideInInspector]
     public PlayerMoveTracker playerMoveTracker;
 
     private void Awake()
@@ -36,7 +37,6 @@ public class PlayerStateController : MonoBehaviour
 
     public void ChangeState(PLAYER_STATE newState)
     {
-        // 상태 변경
         if (currentState != null)
         {
             currentState.Exit();
@@ -53,7 +53,7 @@ public class PlayerStateController : MonoBehaviour
                 break;
 
             case PLAYER_STATE.JUMP:
-                currentState = new JumpState(this, playerMoveTracker, rigidbody2D);
+                currentState = new JumpState(this, rigidbody2D);
                 break;
 
             case PLAYER_STATE.CLIMB:

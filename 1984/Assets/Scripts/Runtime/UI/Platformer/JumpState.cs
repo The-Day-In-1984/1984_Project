@@ -5,44 +5,41 @@ using UnityEngine;
 public class JumpState : IState
 {
     private PlayerStateController stateController;
-    private PlayerMoveTracker moveTracker;
     private Rigidbody2D rigidbody;
 
     private readonly float jumpForce = 13f;
     private float keyHorizontal;
-    private float keyVertical;
-    private bool keySpace;
 
 
-    public JumpState(PlayerStateController playerStateController, PlayerMoveTracker playerMoveTracker, Rigidbody2D rigidbody2D)
+    public JumpState(PlayerStateController playerStateController, Rigidbody2D rigidbody2D)
     {
         this.stateController = playerStateController;
-        this.moveTracker = playerMoveTracker;
         this.rigidbody = rigidbody2D;
     }
 
     public void Enter()
     {
-        Debug.Log("Jump Enter()");
-        rigidbody.velocity = new Vector2(rigidbody.velocity.x, jumpForce);        
+        //Jump
+        rigidbody.velocity = new Vector2(rigidbody.velocity.x, jumpForce);
+        //Debug.Log("Jump Enter()");
     }
 
     public void Execute()
     {
         keyHorizontal = Input.GetAxisRaw("Horizontal");
-        Debug.Log("Jump Execute()");
+        //Debug.Log("Jump Execute()");
     }
 
     public void FixedExecute() 
-    {
-         
-        // 캐릭터가 점프할 때 수행할 작업
+    {        
+        //Jump -> Idle
         if (rigidbody.velocity.y == 0)
         {
             stateController.ChangeState(PLAYER_STATE.IDLE);
         }
 
-        if (Input.GetButton("Horizontal"))
+        //Jump -> Run
+        if (keyHorizontal!=0)
         {
             stateController.ChangeState(PLAYER_STATE.RUN);
         }
@@ -50,7 +47,7 @@ public class JumpState : IState
 
     public void Exit()
     {
-        Debug.Log("Jump Exit()");
+        //Debug.Log("Jump Exit()");
     }
 
 
