@@ -59,7 +59,7 @@ public class RunState : IState
             stateController.ChangeState(PLAYER_STATE.IDLE);
         }
 
-        if (keyVertical != 0 && moveTracker.isNearLadder && !moveTracker.isClimbing)
+        if (keyVertical != 0 && moveTracker.isNearLadder)
         {
             ladder = moveTracker.ladderObj;
             ladderPos = ladder.transform.position;

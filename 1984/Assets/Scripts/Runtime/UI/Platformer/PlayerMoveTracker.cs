@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerMoveTracker : MonoBehaviour
 {
     public bool isNearLadder;
-    public bool isClimbing;
     public bool isGrounded;
     [HideInInspector]
     public GameObject ladderObj;

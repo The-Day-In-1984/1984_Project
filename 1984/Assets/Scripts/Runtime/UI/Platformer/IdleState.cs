@@ -37,8 +37,7 @@ public class IdleState : IState
         nowPos = stateController.transform.position;
         Debug.Log("Idle Execute()");
 
-
-        if (keySpace && !moveTracker.isClimbing && moveTracker.isGrounded)
+        if (keySpace && moveTracker.isGrounded)
         {
             stateController.ChangeState(PLAYER_STATE.JUMP);
         }
@@ -48,12 +47,12 @@ public class IdleState : IState
         Debug.Log("Idle FixedExecute()");
         // 캐릭터가 움직이지 않을 때 수행할 작업
 
-        if (keyHorizontal != 0 && !moveTracker.isClimbing)
+        if (keyHorizontal != 0)
         {
             stateController.ChangeState(PLAYER_STATE.RUN);
         }
-         
-        if (keyVertical != 0 && moveTracker.isNearLadder && !moveTracker.isClimbing)
+
+        if (keyVertical != 0 && moveTracker.isNearLadder)
         {
             ladder = moveTracker.ladderObj;
             ladderPos = ladder.transform.position;

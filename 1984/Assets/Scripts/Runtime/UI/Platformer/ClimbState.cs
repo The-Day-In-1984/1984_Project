@@ -24,10 +24,8 @@ public class ClimbState : IState
     public void Enter()
     {
         Debug.Log("Climb Enter()");
-        moveTracker.isClimbing = true;
         ladder = moveTracker.ladderObj;
         // Climb 애니메이션 실행
-        //ladder = characterStateManager.playerMove.ladder;
         ladderPos = ladder.transform.position;
 
         rigidbody.bodyType = RigidbodyType2D.Kinematic;
@@ -80,6 +78,5 @@ public class ClimbState : IState
         Debug.Log("Climb Exit()");
         // Climb 애니메이션 정지
         rigidbody.bodyType = RigidbodyType2D.Dynamic;
-        stateController.playerMoveTracker.isClimbing = false;
     }
 }
