@@ -1,14 +1,22 @@
-namespace Enums
+﻿namespace Enums
 {
+    public enum PLAYER_STATE
+    {
+        IDLE,
+        RUN,
+        JUMP,
+        CLIMB
+    }
+
     //test
     enum GameState
     {
         None,
         Start,
-        Playing,
+        Playing, 
         Pause,
         End,
-    }
+    } 
 }
 
 namespace Structs
