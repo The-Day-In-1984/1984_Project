@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Enums;
  
 public class ClimbState : IState
 {
@@ -22,7 +23,7 @@ public class ClimbState : IState
 
     public void Enter()
     {
-        //Debug.Log("Climb Enter()");
+        Debug.Log("Climb Enter()");
         ladder = moveTracker.ladderObj;
         ladderPos = ladder.transform.position;
 
@@ -36,7 +37,7 @@ public class ClimbState : IState
 
     public void Execute()
     {
-        //Debug.Log("Climb Execute()");
+        Debug.Log("Climb Execute()");
         keyVertical = Input.GetAxisRaw("Vertical");
 
         if (Input.GetKey(KeyCode.Space))
@@ -44,6 +45,7 @@ public class ClimbState : IState
             //Climb -> Jump
             stateController.ChangeState(PLAYER_STATE.JUMP);
         }
+ 
     }
 
     public void FixedExecute()
@@ -62,6 +64,8 @@ public class ClimbState : IState
 
         if (moveTracker.isGrounded)
         {
+            playerPos = stateController.transform.position;
+
             //End of Climbing down
             if (keyVertical < 0 && playerPos.y < ladderPos.y)
                 stateController.ChangeState(PLAYER_STATE.IDLE);
@@ -74,7 +78,7 @@ public class ClimbState : IState
 
     public void Exit()
     {
-        //Debug.Log("Climb Exit()");
+        Debug.Log("Climb Exit()");
         rigidbody.bodyType = RigidbodyType2D.Dynamic;
     }
 }

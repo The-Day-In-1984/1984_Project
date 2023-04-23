@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Enums;
   
 public class PlayerStateController : MonoBehaviour
 {
-    private PLAYER_STATE currentPlayerState;
+    public PLAYER_STATE currentPlayerState;
     private IState currentState;
     private Rigidbody2D rigidbody2D;
-    [HideInInspector]
     public PlayerMoveTracker playerMoveTracker;
 
     private void Awake()
