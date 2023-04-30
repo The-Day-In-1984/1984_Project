@@ -31,7 +31,17 @@ public class ClimbState : IState
         rigidbody.bodyType = RigidbodyType2D.Kinematic;
         rigidbody.velocity = Vector2.zero;
         playerPos = stateController.transform.position;
-        stateController.transform.position = Vector3.MoveTowards(playerPos, new Vector3(ladderPos.x, playerPos.y, 0), 0.6f);
+        Vector3 startPos;
+
+        if (playerPos.x <= ladderPos.x)
+        {
+            startPos = new Vector3(ladderPos.x - 0.5f, playerPos.y, 0);
+        }
+        else
+        {
+            startPos = new Vector3(ladderPos.x + 0.5f, playerPos.y, 0);
+        }
+        stateController.transform.position = Vector3.MoveTowards(playerPos, startPos, 3.0f);
 
     }
 
