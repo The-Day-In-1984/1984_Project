@@ -1,0 +1,166 @@
+{
+"Dialogue":[
+ {
+  "Id": "FirstMeeting",
+  "Index": 0,
+  "Character": "Winston",
+  "State": "idle",
+  "Text": "안녕하세요,,\n만나서 반갑습니다."
+ },
+ {
+  "Id": "FirstMeeting",
+  "Index": 0,
+  "Option": 0,
+  "Character": "Julia",
+  "State": "idle",
+  "Text": "네, 반가워요"
+ },
+ {
+  "Id": "FirstMeeting",
+  "Index": 1,
+  "Character": "Julia",
+  "State": "idle",
+  "Text": "아직 안먹었습니다."
+ },
+ {
+  "Id": "FirstMeeting",
+  "Index": 1,
+  "Character": "Julia",
+  "State": "idle",
+  "Text": "사주시려고요?"
+ },
+ {
+  "Id": "FirstMeeting",
+  "Index": 2,
+  "Character": "Julia",
+  "State": "idle",
+  "Text": "오늘따라 피곤하네요."
+ },
+ {
+  "Id": "FirstMeeting",
+  "Index": 2,
+  "Character": "Julia",
+  "State": "idle",
+  "Text": "자고싶어요"
+ },
+ {
+  "Id": "FirstMeeting",
+  "Index": 3,
+  "Character": "Julia",
+  "State": "idle",
+  "Text": "안녕히가세요."
+ }
+],
+"Option":[
+ {
+  "Id": "FirstMeeting",
+  "Index": 0,
+  "Dialogue": 1,
+  "Character": "Winston",
+  "State": "idle",
+  "Text": "FirstMeeting-0-1 선택지"
+ },
+ {
+  "Id": "FirstMeeting",
+  "Index": 0,
+  "Dialogue": 2,
+  "Character": "Winston",
+  "State": "idle",
+  "Text": "FirstMeeting-0-2 선택지"
+ },
+ {
+  "Id": "FirstMeeting",
+  "Index": 0,
+  "Dialogue": 3,
+  "Character": "Winston",
+  "State": "idle",
+  "Text": "FirstMeeting-0-3 선택지"
+ },
+ {
+  "Id": "FirstMeeting",
+  "Index": 1,
+  "Dialogue": 5,
+  "Character": "Winston",
+  "State": "Crying",
+  "Text": "FirstMeeting-1-1 선택지"
+ },
+ {
+  "Id": "FirstMeeting",
+  "Index": 1,
+  "Dialogue": 6,
+  "Character": "Winston",
+  "State": "Crying",
+  "Text": "FirstMeeting-1-2 선택지"
+ },
+ {
+  "Id": "FirstMeeting",
+  "Index": 1,
+  "Dialogue": 7,
+  "Character": "Winston",
+  "State": "Crying",
+  "Text": "FirstMeeting-1-3 선택지"
+ },
+ {
+  "Id": "OtherScene",
+  "Index": 0,
+  "Dialogue": 1,
+  "Character": "Winston",
+  "State": "idle",
+  "Text": "OtherScene-0-1 선택지"
+ },
+ {
+  "Id": "OtherScene",
+  "Index": 0,
+  "Dialogue": 1,
+  "Character": "Winston",
+  "State": "idle",
+  "Text": "OtherScene-0-2 선택지"
+ },
+ {
+  "Id": "OtherScene",
+  "Index": 1,
+  "Dialogue": 2,
+  "Character": "Winston",
+  "State": "idle",
+  "Text": "OtherScene-1-1 선택지"
+ },
+ {
+  "Id": "OtherScene",
+  "Index": 1,
+  "Dialogue": 2,
+  "Character": "Winston",
+  "State": "idle",
+  "Text": "OtherScene-1-2 선택지"
+ }
+],
+"Character":[
+ {
+  "Id": "Winston",
+  "Name": "윈스턴",
+  "State": "Idle",
+  "Art": "WinstonIdle"
+ },
+ {
+  "Id": "Winston",
+  "Name": "윈스턴",
+  "State": "Crying",
+  "Art": "WinstonCrying"
+ },
+ {
+  "Id": "Julia",
+  "Name": "줄리아",
+  "State": "Idle",
+  "Art": "JuliaIdle"
+ }
+],
+"Scene":[
+ {
+  "Id": "FirstMeeting",
+  "Description": "첫 만남"
+ },
+ {
+  "Id": "OtherScene",
+  "Description": "임시 장면"
+ }
+]
+}
