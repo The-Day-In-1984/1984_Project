@@ -8,7 +8,7 @@ public class JumpState : IState
     private PlayerStateController stateController;
     private Rigidbody2D rigidbody;
 
-    private readonly float jumpForce = 13f;
+    private readonly float jumpForce = 25f;
     private float keyHorizontal;
 
 

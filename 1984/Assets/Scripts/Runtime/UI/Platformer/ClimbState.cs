@@ -8,7 +8,7 @@ public class ClimbState : IState
     private PlayerStateController stateController;
     private PlayerMoveTracker moveTracker;
     private Rigidbody2D rigidbody;
-    private readonly float climbSpeed = 5f;
+    private readonly float climbSpeed = 15f;
     private float keyVertical;
     private GameObject ladder;
     public Vector3 ladderPos;
@@ -35,11 +35,11 @@ public class ClimbState : IState
 
         if (playerPos.x <= ladderPos.x)
         {
-            startPos = new Vector3(ladderPos.x - 0.5f, playerPos.y, 0);
+            startPos = new Vector3(ladderPos.x - 1.0f, playerPos.y, 0);
         }
         else
         {
-            startPos = new Vector3(ladderPos.x + 0.5f, playerPos.y, 0);
+            startPos = new Vector3(ladderPos.x + 1.0f, playerPos.y, 0);
         }
         stateController.transform.position = Vector3.MoveTowards(playerPos, startPos, 3.0f);
 
