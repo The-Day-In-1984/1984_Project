@@ -11,21 +11,28 @@ public class RunState : IState
     private readonly float moveSpeed = 18f;
     private float keyHorizontal;
     private float keyVertical;
-    public Vector3 playerPos;
+    private Vector3 playerPos;
+    private Vector3 playerScale;
+
     private GameObject ladder;
     public Vector3 ladderPos;
+    private Animator animator;
 
     public RunState(PlayerStateController playerStateController, PlayerMoveTracker playerMoveTracker, Rigidbody2D rigidbody2D)
     {
         this.stateController = playerStateController;
         this.moveTracker = playerMoveTracker;
         this.rigidbody = rigidbody2D;
+        animator = stateController.GetComponent<Animator>();
     }
 
     public void Enter()
     {
         //Debug.Log("Run Enter()");
         playerPos = stateController.transform.position;
+        stateController.transform.localScale = moveTracker.isRight? new Vector3(1f, 1f, 1f): new Vector3(-1f, 1f, 1f);
+        playerScale = new Vector3(1f, 1f, 1f);
+        animator.SetBool("isRunning", true);
     }
 
     public void Execute()
@@ -45,9 +52,10 @@ public class RunState : IState
     {
         if (keyHorizontal != 0)
         {
-            //Run
+            //Run           
             rigidbody.velocity = new Vector2(keyHorizontal * moveSpeed, rigidbody.velocity.y);
         }
+
         else
         {
             //Idle
@@ -74,5 +82,6 @@ public class RunState : IState
     public void Exit()
     {
         //Debug.Log("Run Exit()");
+        animator.SetBool("isRunning", false);
     }
 }

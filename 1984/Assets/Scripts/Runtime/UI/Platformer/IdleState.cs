@@ -15,12 +15,14 @@ public class IdleState : IState
     private GameObject ladder;
     public Vector3 playerPos;
     public Vector3 ladderPos;
+    private Animator animator;
 
     public IdleState(PlayerStateController playerStateController, PlayerMoveTracker playerMoveTracker, Rigidbody2D rigidbody2D)
     {
         this.stateController = playerStateController;
         this.moveTracker = playerMoveTracker;
         this.rigidbody = rigidbody2D;
+        animator = stateController.GetComponent<Animator>();
     }
 
     public void Enter()
@@ -29,6 +31,7 @@ public class IdleState : IState
         rigidbody.velocity = new Vector2(0f, rigidbody.velocity.y);
         playerPos = stateController.transform.position;
         Debug.Log("Idle Enter()");
+        
     }
 
     public void Execute()
@@ -50,6 +53,7 @@ public class IdleState : IState
 
         if (keyHorizontal != 0)
         {
+            moveTracker.isRight = keyHorizontal > 0 ? true : false; 
             //Idle -> Run
             stateController.ChangeState(PLAYER_STATE.RUN);
         }
@@ -73,5 +77,6 @@ public class IdleState : IState
     public void Exit()
     {
         Debug.Log("Idle Exit()");
+        
     }
 }

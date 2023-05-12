@@ -53,7 +53,7 @@ public class PlayerStateController : MonoBehaviour
                 break;
 
             case PLAYER_STATE.JUMP:
-                currentState = new JumpState(this, rigidbody2D);
+                currentState = new JumpState(this, playerMoveTracker, rigidbody2D);
                 break;
 
             case PLAYER_STATE.CLIMB:

@@ -13,17 +13,20 @@ public class ClimbState : IState
     private GameObject ladder;
     public Vector3 ladderPos;
     public Vector3 playerPos;
+    private Animator animator;
 
     public ClimbState(PlayerStateController playerStateController, PlayerMoveTracker playerMoveTracker, Rigidbody2D rigidbody2D)
     {
         this.stateController = playerStateController;
         this.moveTracker = playerMoveTracker;
         this.rigidbody = rigidbody2D;
+        animator = stateController.GetComponent<Animator>();
     }
 
     public void Enter()
     {
         Debug.Log("Climb Enter()");
+        animator.SetBool("isClimbing", true);
         ladder = moveTracker.ladderObj;
         ladderPos = ladder.transform.position;
 
@@ -90,5 +93,6 @@ public class ClimbState : IState
     {
         Debug.Log("Climb Exit()");
         rigidbody.bodyType = RigidbodyType2D.Dynamic;
+        animator.SetBool("isClimbing", false);
     }
 }

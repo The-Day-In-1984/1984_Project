@@ -6,6 +6,7 @@ public class PlayerMoveTracker : MonoBehaviour
 {
     public bool isNearLadder;
     public bool isGrounded;
+    public bool isRight;
     [HideInInspector]
     public GameObject ladderObj;
     private CapsuleCollider2D coll;
@@ -16,6 +17,7 @@ public class PlayerMoveTracker : MonoBehaviour
     { 
         coll = GetComponent<CapsuleCollider2D>();    
         groundLayer = LayerMask.GetMask("Ground");
+        isRight = true;
 
     }
 
