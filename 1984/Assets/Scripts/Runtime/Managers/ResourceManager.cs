@@ -58,4 +58,16 @@ public class ResourceManager
         _sounds.Add(path, sound);
         return sound;
     }
+    
+    public T Load<T>(string path) where T : Object
+    {
+        GameObject prefab = Resources.Load<GameObject>(PrefabPath + path);
+        if (prefab == null)
+        {
+            Debug.LogError($"[ResourceManager] LoadAsync Error: {path}");
+            return null;
+        }
+
+        return prefab.GetComponent<T>();
+    }
 }
