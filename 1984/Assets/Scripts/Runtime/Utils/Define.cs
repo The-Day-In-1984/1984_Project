@@ -9,12 +9,11 @@
     }
 
     //test
-    enum GameState
+    public enum GameState
     {
-        None,
-        Start,
-        Playing, 
-        Pause,
+        Ttitle,
+        Platformer,
+        Dialogue, 
         End,
     } 
 }
