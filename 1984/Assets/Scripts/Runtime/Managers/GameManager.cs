@@ -22,6 +22,14 @@ public class GameManager : MonoBehaviour
     public static SoundManager Sound => _instance._sound;
     public static UIManager UI => _instance._ui;
     
+    public int CurrentDay
+    {
+        get { return currentday;}
+        set { Mathf.Clamp(value, 0, 14); }
+    }
+
+    private int currentday;
+    
     static void Init()
     {
         if (_instance == null)
