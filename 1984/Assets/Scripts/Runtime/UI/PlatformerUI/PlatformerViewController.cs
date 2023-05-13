@@ -6,24 +6,13 @@ public class PlatformerViewController : MonoBehaviour
 {
     [SerializeField] private PlayerData playerData;
 
-    private Queue<UIView> _uiViews;
+    private Queue<UIView> _uiViews = new Queue<UIView>();
 
     private void Start()
     {
         playerData.reliability.Value = 100;
         
         
-    }
-
-    private void OnEnable()
-    {
-        _uiViews = new Queue<UIView>();
-    }
-    
-    private void OnDisable()
-    {
-        GameManager.UI.PopupPop(_uiViews);
-        _uiViews.Clear();
     }
 
     private void Update()
