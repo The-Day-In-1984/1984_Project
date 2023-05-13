@@ -357,6 +357,70 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 682605025458455848, guid: 174fe158859a3e642a268060c0b7dd31, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 682605025458455848, guid: 174fe158859a3e642a268060c0b7dd31, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 682605025458455848, guid: 174fe158859a3e642a268060c0b7dd31, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 682605025458455848, guid: 174fe158859a3e642a268060c0b7dd31, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3692348183432612250, guid: 174fe158859a3e642a268060c0b7dd31, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3692348183432612250, guid: 174fe158859a3e642a268060c0b7dd31, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3692348183432612250, guid: 174fe158859a3e642a268060c0b7dd31, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3692348183432612250, guid: 174fe158859a3e642a268060c0b7dd31, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591656582658995690, guid: 174fe158859a3e642a268060c0b7dd31, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591656582658995690, guid: 174fe158859a3e642a268060c0b7dd31, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591656582658995690, guid: 174fe158859a3e642a268060c0b7dd31, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591656582658995690, guid: 174fe158859a3e642a268060c0b7dd31, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7067536707544230725, guid: 174fe158859a3e642a268060c0b7dd31, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7067536707544230725, guid: 174fe158859a3e642a268060c0b7dd31, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7067536707544230725, guid: 174fe158859a3e642a268060c0b7dd31, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7067536707544230725, guid: 174fe158859a3e642a268060c0b7dd31, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7561321526692986144, guid: 174fe158859a3e642a268060c0b7dd31, type: 3}
       propertyPath: m_Name
       value: UIView_Title

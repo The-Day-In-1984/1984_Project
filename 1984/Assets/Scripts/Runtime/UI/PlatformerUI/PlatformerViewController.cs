@@ -12,14 +12,10 @@ public class PlatformerViewController : MonoBehaviour
 
     private void Update()
     {
+        //temp
         if (Input.GetKeyDown(KeyCode.Space))
         {
             playerData.reliability.Value -= 10;
         }
-    }
-
-    public void Down()
-    {
-        
     }
 }

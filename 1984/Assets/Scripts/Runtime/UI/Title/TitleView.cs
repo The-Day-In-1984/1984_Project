@@ -1,4 +1,7 @@
-﻿public class TitleView : UIView
+﻿using UnityEngine;
+using UnityEngine.UI;
+
+public class TitleView : UIView
 {
     public override void Show()
     {
