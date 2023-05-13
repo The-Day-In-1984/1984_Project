@@ -13,13 +13,13 @@ public class GameManager : MonoBehaviour
     //private readonly InputManager _input = new InputManager();
     private readonly ResourceManager _resource = new ResourceManager();
     private readonly DataManager _data = new DataManager();
-    private readonly SoundManager _sound = new SoundManager();
+    //private readonly SoundManager _sound = new SoundManager();
     private readonly UIManager _ui = new UIManager();
 
     //public static InputManager Input => _instance._input;
     public static ResourceManager Resource => _instance._resource;
     public static DataManager Data => _instance._data;
-    public static SoundManager Sound => _instance._sound;
+    //public static SoundManager Sound => _instance._sound;
     public static UIManager UI => _instance._ui;
     
     public int CurrentDay
@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
             // 추가적인 매니저 초기화
             _instance._data.Init();
             _instance._ui.Init();
+            //_instance._sound.Init();
         }
     }
 
