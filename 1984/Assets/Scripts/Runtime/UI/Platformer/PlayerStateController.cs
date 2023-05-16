@@ -17,7 +17,6 @@ public class PlayerStateController : MonoBehaviour
         playerMoveTracker = GetComponent<PlayerMoveTracker>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         currentState = new IdleState(this, playerMoveTracker, rigidbody2D);
-
     }
 
     private void Start()

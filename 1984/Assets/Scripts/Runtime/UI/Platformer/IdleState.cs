@@ -30,13 +30,13 @@ public class IdleState : IState
         //Idle
         rigidbody.velocity = new Vector2(0f, rigidbody.velocity.y);
         playerPos = stateController.transform.position;
-        Debug.Log("Idle Enter()");
+        //Debug.Log("Idle Enter()");
         
     }
 
     public void Execute()
     {
-        Debug.Log("Idle Execute()");
+        //Debug.Log("Idle Execute()");
         keyVertical = Input.GetAxisRaw("Vertical");
         keyHorizontal = Input.GetAxisRaw("Horizontal");
         keySpace = Input.GetKey(KeyCode.Space);
@@ -49,7 +49,7 @@ public class IdleState : IState
     }
     public void FixedExecute()
     {
-        Debug.Log("Idle FixedExecute()");
+        //Debug.Log("Idle FixedExecute()");
 
         if (keyHorizontal != 0)
         {
@@ -76,7 +76,7 @@ public class IdleState : IState
 
     public void Exit()
     {
-        Debug.Log("Idle Exit()");
+        //Debug.Log("Idle Exit()");
         
     }
 }
