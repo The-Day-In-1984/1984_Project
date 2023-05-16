@@ -38,37 +38,58 @@ public class UIManager
     {
         try
         {
-            var uiViewPrefabs = GameObject.Find(uiViewName)?.GetComponent<UIView>();
-            if (uiViewPrefabs != null)
+            var uiViewPrefab = GameObject.Find(uiViewName)?.GetComponent<UIView>();
+            if (uiViewPrefab != null)
             {
-                uiViewDictionary.Add(uiViewName, uiViewPrefabs);
-                return uiViewPrefabs;
+                return uiViewPrefab;
             }
-                
-            if (uiViewDictionary.TryGetValue(uiViewName, out UIView uiView))
-            {
-                return uiView;
-            }
-
-            var uiViewPrefab = GameManager.Resource.Load<UIView>(UIViewPath + uiViewName);
+            
+            uiViewPrefab = GameManager.Resource.Load<UIView>(UIViewPath + uiViewName);
             if (uiViewPrefab == null)
             {
                 throw new Exception("Resource 폴더에 없거나 씬에 존재하지 않는 UIView입니다..! : " + uiViewName + "을 확인해주세요!");
             }
 
-            uiView = GameObject.Instantiate(uiViewPrefab);
-            uiView.name = uiViewName;
-
-            uiViewDictionary.Add(uiViewName, uiView);
-
-            return uiView;
+            //uiViewDictionary.Add(uiViewName, uiViewPrefab);
+            
+            uiViewPrefab = GameObject.Instantiate(uiViewPrefab);
+            uiViewPrefab.name = uiViewName;
+            
+            return uiViewPrefab;
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            Debug.LogWarning(e);
         }
 
         return null;
     }
     
+    public UIView PopupPush(string uiViewName, Queue<UIView> uiViews)
+    {
+        var view = GameManager.UI.GetUIView(uiViewName);
+        
+        if (view == null)
+        {
+            Debug.LogError($"[UIManager] PopupPush Error: {uiViewName}");
+            return null;
+        }
+
+        uiViews.Enqueue(view);
+        view.Show();
+
+        return view;
+    }
+    
+    public UIView PopupPop(Queue<UIView> uiViews)
+    {
+        UIView view = null;
+        if (uiViews.Count > 0)
+        {
+            view = uiViews.Dequeue();
+            view.Hide();
+        }
+        
+        return view;
+    }
 }
