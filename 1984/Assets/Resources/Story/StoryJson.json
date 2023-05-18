@@ -3,90 +3,102 @@
   "Id": 0,
   "Type": "Dialogue",
   "Character": "Winston",
-  "State": "idle",
-  "Text": "안녕하세요,,\n만나서 반갑습니다."
+  "State": "Idle",
+  "Text": "안녕하세요,,\n만나서 반갑습니다.",
+  "Scene": "InRoom"
  },
  {
   "Id": 0,
   "Type": "Dialogue",
   "Character": "Julia",
-  "State": "idle",
-  "Text": "네, 반가워요"
+  "State": "Idle",
+  "Text": "네, 반가워요",
+  "Scene": "InRoom"
  },
  {
   "Id": 0,
   "Type": "Option",
   "Goto": 1,
   "Character": "Winston",
-  "State": "idle",
-  "Text": "식사 하셨나요?"
+  "State": "Idle",
+  "Text": "식사 하셨나요?",
+  "Scene": "InRoom"
  },
  {
   "Id": 0,
   "Type": "Option",
   "Goto": 2,
   "Character": "Winston",
-  "State": "idle",
-  "Text": "피곤하시죠?"
+  "State": "Idle",
+  "Text": "피곤하시죠?",
+  "Scene": "InRoom"
  },
  {
   "Id": 0,
   "Type": "Option",
   "Goto": 3,
   "Character": "Winston",
-  "State": "idle",
-  "Text": "그냥 갈게요,,"
+  "State": "Idle",
+  "Text": "그냥 갈게요,,",
+  "Scene": "InRoom"
  },
  {
   "Id": 1,
   "Type": "Dialogue",
   "Character": "Julia",
-  "State": "idle",
-  "Text": "아직 안먹었습니다."
+  "State": "Idle",
+  "Text": "아직 안먹었습니다.",
+  "Scene": "InRoom"
  },
  {
   "Id": 1,
   "Type": "Dialogue",
   "Goto": 4,
   "Character": "Julia",
-  "State": "idle",
-  "Text": "사주시려고요?"
+  "State": "Idle",
+  "Text": "사주시려고요?",
+  "Scene": "InRoom"
  },
  {
   "Id": 2,
   "Type": "Dialogue",
   "Character": "Julia",
-  "State": "idle",
-  "Text": "오늘따라 피곤하네요."
+  "State": "Idle",
+  "Text": "오늘따라 피곤하네요.",
+  "Scene": "InRoom"
  },
  {
   "Id": 2,
   "Type": "Dialogue",
   "Goto": 4,
   "Character": "Julia",
-  "State": "idle",
-  "Text": "자고싶어요"
+  "State": "Idle",
+  "Text": "자고싶어요",
+  "Scene": "InRoom"
  },
  {
   "Id": 3,
   "Type": "Dialogue",
   "Goto": 4,
   "Character": "Julia",
-  "State": "idle",
-  "Text": "안녕히가세요."
+  "State": "Idle",
+  "Text": "안녕히가세요.",
+  "Scene": "InRoom"
  },
  {
   "Id": 4,
   "Type": "Dialogue",
   "Character": "Winston",
-  "State": "idle",
-  "Text": ". . . ."
+  "State": "Idle",
+  "Text": ". . . .",
+  "Scene": "InRoom"
  },
  {
   "Id": 4,
   "Type": "Dialogue",
   "Character": "Winston",
-  "State": "idle",
-  "Text": ". . . ."
+  "State": "Idle",
+  "Text": ". . . .",
+  "Scene": "InRoom"
  }
 ]

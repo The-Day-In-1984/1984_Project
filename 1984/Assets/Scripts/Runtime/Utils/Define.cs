@@ -15,7 +15,7 @@
         Platformer,
         Dialogue, 
         End,
-    } 
+    }
 }
 
 namespace Structs
@@ -34,6 +34,7 @@ namespace Structs
         public string Character { get; set; }
         public string State { get; set;}
         public string Text { get;  set;}
+        public string Scene { get;  set;}
     }
 } 
 
