@@ -8,7 +8,7 @@ public class RunState : IState
     private PlayerStateController stateController;
     private PlayerMoveTracker moveTracker;
     private Rigidbody2D rigidbody;
-    private readonly float moveSpeed = 18f;
+    private readonly float moveSpeed = 20f;
     private float keyHorizontal;
     private float keyVertical;
     private Vector3 playerPos;
