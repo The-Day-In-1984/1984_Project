@@ -1,166 +1,104 @@
-{
-"Dialogue":[
+[
  {
-  "Id": "FirstMeeting",
-  "Index": 0,
+  "Id": 0,
+  "Type": "Dialogue",
   "Character": "Winston",
-  "State": "idle",
-  "Text": "안녕하세요,,\n만나서 반갑습니다."
- },
- {
-  "Id": "FirstMeeting",
-  "Index": 0,
-  "Option": 0,
-  "Character": "Julia",
-  "State": "idle",
-  "Text": "네, 반가워요"
- },
- {
-  "Id": "FirstMeeting",
-  "Index": 1,
-  "Character": "Julia",
-  "State": "idle",
-  "Text": "아직 안먹었습니다."
- },
- {
-  "Id": "FirstMeeting",
-  "Index": 1,
-  "Character": "Julia",
-  "State": "idle",
-  "Text": "사주시려고요?"
- },
- {
-  "Id": "FirstMeeting",
-  "Index": 2,
-  "Character": "Julia",
-  "State": "idle",
-  "Text": "오늘따라 피곤하네요."
- },
- {
-  "Id": "FirstMeeting",
-  "Index": 2,
-  "Character": "Julia",
-  "State": "idle",
-  "Text": "자고싶어요"
- },
- {
-  "Id": "FirstMeeting",
-  "Index": 3,
-  "Character": "Julia",
-  "State": "idle",
-  "Text": "안녕히가세요."
- }
-],
-"Option":[
- {
-  "Id": "FirstMeeting",
-  "Index": 0,
-  "Dialogue": 1,
-  "Character": "Winston",
-  "State": "idle",
-  "Text": "FirstMeeting-0-1 선택지"
- },
- {
-  "Id": "FirstMeeting",
-  "Index": 0,
-  "Dialogue": 2,
-  "Character": "Winston",
-  "State": "idle",
-  "Text": "FirstMeeting-0-2 선택지"
- },
- {
-  "Id": "FirstMeeting",
-  "Index": 0,
-  "Dialogue": 3,
-  "Character": "Winston",
-  "State": "idle",
-  "Text": "FirstMeeting-0-3 선택지"
- },
- {
-  "Id": "FirstMeeting",
-  "Index": 1,
-  "Dialogue": 5,
-  "Character": "Winston",
-  "State": "Crying",
-  "Text": "FirstMeeting-1-1 선택지"
- },
- {
-  "Id": "FirstMeeting",
-  "Index": 1,
-  "Dialogue": 6,
-  "Character": "Winston",
-  "State": "Crying",
-  "Text": "FirstMeeting-1-2 선택지"
- },
- {
-  "Id": "FirstMeeting",
-  "Index": 1,
-  "Dialogue": 7,
-  "Character": "Winston",
-  "State": "Crying",
-  "Text": "FirstMeeting-1-3 선택지"
- },
- {
-  "Id": "OtherScene",
-  "Index": 0,
-  "Dialogue": 1,
-  "Character": "Winston",
-  "State": "idle",
-  "Text": "OtherScene-0-1 선택지"
- },
- {
-  "Id": "OtherScene",
-  "Index": 0,
-  "Dialogue": 1,
-  "Character": "Winston",
-  "State": "idle",
-  "Text": "OtherScene-0-2 선택지"
- },
- {
-  "Id": "OtherScene",
-  "Index": 1,
-  "Dialogue": 2,
-  "Character": "Winston",
-  "State": "idle",
-  "Text": "OtherScene-1-1 선택지"
- },
- {
-  "Id": "OtherScene",
-  "Index": 1,
-  "Dialogue": 2,
-  "Character": "Winston",
-  "State": "idle",
-  "Text": "OtherScene-1-2 선택지"
- }
-],
-"Character":[
- {
-  "Id": "Winston",
-  "Name": "윈스턴",
   "State": "Idle",
-  "Art": "WinstonIdle"
+  "Text": "안녕하세요,,\n만나서 반갑습니다.",
+  "Scene": "InRoom"
  },
  {
-  "Id": "Winston",
-  "Name": "윈스턴",
-  "State": "Crying",
-  "Art": "WinstonCrying"
- },
- {
-  "Id": "Julia",
-  "Name": "줄리아",
+  "Id": 0,
+  "Type": "Dialogue",
+  "Character": "Julia",
   "State": "Idle",
-  "Art": "JuliaIdle"
- }
-],
-"Scene":[
- {
-  "Id": "FirstMeeting",
-  "Description": "첫 만남"
+  "Text": "네, 반가워요",
+  "Scene": "InRoom"
  },
  {
-  "Id": "OtherScene",
-  "Description": "임시 장면"
+  "Id": 0,
+  "Type": "Option",
+  "Goto": 1,
+  "Character": "Winston",
+  "State": "Idle",
+  "Text": "식사 하셨나요?",
+  "Scene": "InRoom"
+ },
+ {
+  "Id": 0,
+  "Type": "Option",
+  "Goto": 2,
+  "Character": "Winston",
+  "State": "Idle",
+  "Text": "피곤하시죠?",
+  "Scene": "InRoom"
+ },
+ {
+  "Id": 0,
+  "Type": "Option",
+  "Goto": 3,
+  "Character": "Winston",
+  "State": "Idle",
+  "Text": "그냥 갈게요,,",
+  "Scene": "InRoom"
+ },
+ {
+  "Id": 1,
+  "Type": "Dialogue",
+  "Character": "Julia",
+  "State": "Idle",
+  "Text": "아직 안먹었습니다.",
+  "Scene": "InRoom"
+ },
+ {
+  "Id": 1,
+  "Type": "Dialogue",
+  "Goto": 4,
+  "Character": "Julia",
+  "State": "Idle",
+  "Text": "사주시려고요?",
+  "Scene": "InRoom"
+ },
+ {
+  "Id": 2,
+  "Type": "Dialogue",
+  "Character": "Julia",
+  "State": "Idle",
+  "Text": "오늘따라 피곤하네요.",
+  "Scene": "InRoom"
+ },
+ {
+  "Id": 2,
+  "Type": "Dialogue",
+  "Goto": 4,
+  "Character": "Julia",
+  "State": "Idle",
+  "Text": "자고싶어요",
+  "Scene": "InRoom"
+ },
+ {
+  "Id": 3,
+  "Type": "Dialogue",
+  "Goto": 4,
+  "Character": "Julia",
+  "State": "Idle",
+  "Text": "안녕히가세요.",
+  "Scene": "InRoom"
+ },
+ {
+  "Id": 4,
+  "Type": "Dialogue",
+  "Character": "Winston",
+  "State": "Idle",
+  "Text": ". . . .",
+  "Scene": "InRoom"
+ },
+ {
+  "Id": 4,
+  "Type": "Dialogue",
+  "Character": "Winston",
+  "State": "Idle",
+  "Text": ". . . .",
+  "Scene": "InRoom"
  }
 ]
-}
