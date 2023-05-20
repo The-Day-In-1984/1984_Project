@@ -2,8 +2,8 @@ using Aspose.Cells;
 using UnityEditor;
 public static class ExcelToJsonConverter
 {
-    private const string DialogueExcelPath = "Assets/Resources/Dialogue/Dialogue.xlsx";
-    private const string DialogueJsonPath = "Assets/Resources/Dialogue/DialogueJson.json";
+    private const string DialogueExcelPath = "Assets/Resources/Story/StoryData.xlsx";
+    private const string DialogueJsonPath = "Assets/Resources/Story/StoryJson.json";
     
  
     /// <param name="inputPath">Assets/.../file.xlsx</param>

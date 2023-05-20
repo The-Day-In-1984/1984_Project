@@ -2,16 +2,16 @@ using System.Collections.Generic;
 using Structs;
 public class DataManager
 {
-    public Dictionary<string, List<DialogueData>> DialogueData { get; private set; } = new Dictionary<string, List<DialogueData>>();
-    private readonly JsonDataConverter<DialogueData> _jsonToDictionaryConverter = new JsonDataConverter<DialogueData>();
+    public Dictionary<string, List<StoryData>> StoryData { get; private set; }
+    private readonly JsonDataConverter<StoryData> _storyDataConverter = new JsonDataConverter<StoryData>();
 
     public void Init()
     {
-        LoadDialogueData();
+        LoadStoryData();
     }
 
-    private void LoadDialogueData()
+    private void LoadStoryData()
     {
-        DialogueData = _jsonToDictionaryConverter.GetDictionaryfromJson(Const.Consts.ResourcesDialogueJsonPath);
+        StoryData = _storyDataConverter.GetDictionaryFromJson(Const.Consts.ResourcesStoryJsonPath);
     }
 }

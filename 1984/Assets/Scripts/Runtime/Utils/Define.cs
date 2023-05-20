@@ -9,12 +9,11 @@
     }
 
     //test
-    enum GameState
+    public enum GameState
     {
-        None,
-        Start,
-        Playing, 
-        Pause,
+        Ttitle,
+        Platformer,
+        Dialogue, 
         End,
     }
 
@@ -24,6 +23,7 @@
         On,
         Off
     }
+
 }
 
 namespace Structs
@@ -34,11 +34,15 @@ namespace Structs
         public int score;
         public int level;
     }
-    public struct DialogueData : IJsonData
+    public struct StoryData : IJsonData
     {
         public string Id { get; set; }
-        public string Character { get; set;}
+        public string Type { get; set; }
+        public string Goto { get; set; }
+        public string Character { get; set; }
+        public string State { get; set;}
         public string Text { get;  set;}
+        public string Scene { get;  set;}
     }
 } 
 
@@ -47,6 +51,6 @@ namespace Const
     //test
     static class Consts
     {
-        public const string ResourcesDialogueJsonPath = "Dialogue/DialogueJson";
+        public const string ResourcesStoryJsonPath = "Story/StoryJson";
     }
 }
