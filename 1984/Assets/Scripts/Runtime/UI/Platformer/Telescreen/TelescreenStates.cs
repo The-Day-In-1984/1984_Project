@@ -23,12 +23,12 @@ namespace TeleScreen
         {
             Debug.Log("ReadyState OnEnter");
             curTime = 0f;
-            targetTime = 2f;
+            targetTime = telescreen.readyTime;
         }
 
         public void OnExcute()
         {
-            Debug.Log("ReadyState Excute");
+            //Debug.Log("ReadyState Excute");
 
             curTime += Time.deltaTime;
 
@@ -37,15 +37,11 @@ namespace TeleScreen
                 telescreen.ChangeState(Enums.TeleScreenType.On);
             }
             
-            //if (!telescreen.isVisible)
-            //{
-            //    telescreen.ChangeState(Enums.TeleScreenType.Off);
-            //}
         }
 
         public void OnExit()
         {
-            Debug.Log("ReadyState OnExit");
+            //Debug.Log("ReadyState OnExit");
         }
     }
 
@@ -64,10 +60,8 @@ namespace TeleScreen
         public void OnEnter()
         {
             curTime = 0f;
-            targetTime = 2f;
-            Debug.Log("OnState OnEnter");
+            targetTime = telescreen.onTime;
             playerMoveTracker.isTraces = true;
-            //telescreen.ChangePlayerTrace(true);
         }
 
         public void OnExcute()
@@ -83,7 +77,7 @@ namespace TeleScreen
 
         public void OnExit()
         {
-            Debug.Log("OnState OnExit");
+            //Debug.Log("OnState OnExit");
             playerMoveTracker.isTraces = false;
         }
     }
@@ -94,6 +88,8 @@ namespace TeleScreen
         private Telescreen telescreen;
         private float curTime;
         private float targetTime;
+        private float minTime;
+        private float maxTime;
         public OffState(Telescreen telescreen)
         {
             this.telescreen = telescreen;
@@ -102,13 +98,15 @@ namespace TeleScreen
         {
             Debug.Log("OffState OnEnter");
             curTime = 0f;
-            targetTime = Random.Range(3, 5);
+            minTime = telescreen.offMinTime;
+            maxTime = telescreen.offMaxTime;
+            targetTime = Random.Range(minTime, maxTime);
             //telescreen.ChangePlayerTrace(false);
         }
 
         public void OnExcute()
         {
-            Debug.Log("OffState Excute");
+            //Debug.Log("OffState Excute");
 
             curTime += Time.deltaTime;
             
@@ -120,7 +118,7 @@ namespace TeleScreen
 
         public void OnExit()
         {
-            Debug.Log("OffState OnExit");
+            //Debug.Log("OffState OnExit");
         }
     }
 }

@@ -7,10 +7,16 @@ public class Telescreen : MonoBehaviour
 {
     public bool isVisible = false; // 텔레스크린이 범위에 있는지
     private bool nowVisible;
-    public Camera camera;
     private Transform transform;
-    public GameObject Player;
-    public PlayerMoveTracker playerMoveTracker;
+    public GameObject Player; 
+    public Camera camera;
+    [HideInInspector] public PlayerMoveTracker playerMoveTracker;
+ 
+    [Header("State Time Setting")]
+    public float readyTime = 2f;
+    public float onTime = 4f;
+    public float offMinTime = 3f;
+    public float offMaxTime = 6f;
 
     private readonly Dictionary<TeleScreenType, ITelescreen> stateDictinoary = new Dictionary<TeleScreenType, ITelescreen>();
     private ITelescreen currentState;
@@ -24,6 +30,24 @@ public class Telescreen : MonoBehaviour
         stateDictinoary.Add(TeleScreenType.On, new TeleScreen.OnState(this));
         stateDictinoary.Add(TeleScreenType.Off, new TeleScreen.OffState(this));
 
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        
+        nowVisible = IsTargetVisible(camera, transform);
+        if( nowVisible != isVisible)
+        {
+            //Debug.Log("CHANGE");
+            ChangeState(TeleScreenType.Off);
+        }
+        isVisible = nowVisible;
+
+        if (isVisible)
+        {
+            //Debug.Log(this.gameObject.ToString());
+            currentState.OnExcute();
+        }
     }
 
     public void ChangeState(TeleScreenType state)
@@ -40,26 +64,7 @@ public class Telescreen : MonoBehaviour
         }
     }
 
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-        nowVisible = IsTargetVisible(camera, transform);
-        if( nowVisible != isVisible)
-        {
-            Debug.Log("CHANGE");
-            ChangeState(TeleScreenType.Off);
-        }
-        isVisible = nowVisible;
-
-        if (isVisible)
-        {
-            Debug.Log(this.gameObject.ToString());
-            currentState.OnExcute();
-        }
-    }
-
+    //게임 화면에 오브젝트가 보이는지 체크
     public bool IsTargetVisible(Camera _camera, Transform _transform)
     {
         var planes = GeometryUtility.CalculateFrustumPlanes(_camera);
