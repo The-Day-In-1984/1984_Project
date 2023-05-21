@@ -27,7 +27,7 @@ public class ClickMission : BaseMission, IPointerClickHandler
         base.OnMissionComplete();
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public virtual void OnPointerClick(PointerEventData eventData)
     {
         if (IsCompleted)
             return;
