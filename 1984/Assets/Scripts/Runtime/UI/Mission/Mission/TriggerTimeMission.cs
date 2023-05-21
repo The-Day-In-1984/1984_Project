@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TriggerTimeMission : TimeMission
 {
+    [SerializeField] private UnityEvent onCompleted;
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Target"))
@@ -18,5 +20,11 @@ public class TriggerTimeMission : TimeMission
         {
             StopCount();
         }
+    }
+    
+    public override void OnMissionComplete()
+    {
+        base.OnMissionComplete();
+        onCompleted?.Invoke();
     }
 }
