@@ -1,7 +1,8 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public class DragMission : MonoBehaviour, IMission, IDragHandler
+public class DragMission : MonoBehaviour, IMission, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     [Header("Target")] 
     [SerializeField] private Transform target;
@@ -10,35 +11,55 @@ public class DragMission : MonoBehaviour, IMission, IDragHandler
     private MissionController _missionController;
     private DistanceLogic _distanceLogic;
     
+    [SerializeField] private UnityEvent onDragStart;
+    [SerializeField] private UnityEvent onDragEnd;
+    
     public bool IsCompleted { get; private set; }
     
     private void Awake()
     {
         _missionController = GetComponentInParent<MissionController>();
         _missionController.AddMission(this);
+    }
+
+    public virtual void OnMissionStart()
+    {
+        IsCompleted = false;
         
         _distanceLogic = new DistanceLogic(this.transform, target, successDistance);
         _distanceLogic.OnSuccess += OnMissionComplete;
     }
 
-    public void OnMissionStart()
+    public virtual void OnMissionComplete()
     {
-        IsCompleted = false;
-    }
-
-    public void OnMissionComplete()
-    {
+        _distanceLogic.OnSuccess -= OnMissionComplete;
+        
         IsCompleted = true;
         _missionController.CheckAllMissionsComplete();
     }
     
-    public void OnDrag(PointerEventData eventData)
+    public virtual void OnDrag(PointerEventData eventData)
     {
         if (IsCompleted)
             return;
-
-        gameObject.transform.position = eventData.position;
+        
+        SetTransformPosition(eventData.position);
 
         _distanceLogic.DistanceCalculation();
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        onDragStart?.Invoke();
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        onDragEnd?.Invoke();
+    }
+    
+    private void SetTransformPosition(Vector3 position)
+    {
+        transform.position = position;
     }
 }
