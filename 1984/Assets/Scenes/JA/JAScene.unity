@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &66105338 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4389497198898864865, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
+  m_PrefabInstance: {fileID: 2007165648862254303}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &765109598
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,17 +417,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2010341168 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 354557062734751968, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
-  m_PrefabInstance: {fileID: 2007165648862254303}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d0390bd8b8ffd640b34fe25065ff1df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2007165648862254303
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -430,6 +424,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 765109602}
     m_Modifications:
+    - target: {fileID: 1885636658323178417, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3017678647377008706, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
       propertyPath: target
       value: 
@@ -449,7 +447,7 @@ PrefabInstance:
     - target: {fileID: 3017678647377008706, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
       propertyPath: onDragEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2010341168}
+      objectReference: {fileID: 0}
     - target: {fileID: 3017678647377008706, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
       propertyPath: onDragStart.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
@@ -457,7 +455,7 @@ PrefabInstance:
     - target: {fileID: 3017678647377008706, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
       propertyPath: onDragStart.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2010341168}
+      objectReference: {fileID: 0}
     - target: {fileID: 3017678647377008706, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
       propertyPath: onDragEnd.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -580,9 +578,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6854133704106957464, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
+    - {fileID: 6531643240078239895, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
 --- !u!224 &5417499289516755498 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5833340620778692341, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
   m_PrefabInstance: {fileID: 2007165648862254303}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5417499289516755503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 66105338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9917f3d7a15f40c9b7a54999adf7b8bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

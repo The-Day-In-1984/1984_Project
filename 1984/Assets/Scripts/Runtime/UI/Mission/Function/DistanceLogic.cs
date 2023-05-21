@@ -3,7 +3,7 @@ using System;
 
 public class DistanceLogic
 {
-    public Action OnSuccess;
+    public Action onSuccess;
     
     private readonly Transform _transform;
     private readonly Transform _target;
@@ -22,7 +22,7 @@ public class DistanceLogic
         
         if (distance <= _successDistance)
         {
-            OnSuccess?.Invoke();
+            onSuccess?.Invoke();
             return true;
         }
 
