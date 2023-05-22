@@ -6,23 +6,30 @@ using Enums;
 public class JumpState : IState
 {
     private PlayerStateController stateController;
+    private PlayerMoveTracker moveTracker;
     private Rigidbody2D rigidbody;
 
-    private readonly float jumpForce = 13f;
+    private readonly float jumpForce = 25f;
     private float keyHorizontal;
 
+    private Animator animator;
 
-    public JumpState(PlayerStateController playerStateController, Rigidbody2D rigidbody2D)
+
+    public JumpState(PlayerStateController playerStateController, PlayerMoveTracker playerMoveTracker, Rigidbody2D rigidbody2D)
     {
         this.stateController = playerStateController;
+        this.moveTracker = playerMoveTracker;
         this.rigidbody = rigidbody2D;
+        animator = stateController.GetComponent<Animator>();
     }
 
     public void Enter()
     {
+        animator.SetTrigger("isJumping");
         //Jump
         rigidbody.velocity = new Vector2(rigidbody.velocity.x, jumpForce);
         //Debug.Log("Jump Enter()");
+        
     }
 
     public void Execute()
@@ -42,6 +49,7 @@ public class JumpState : IState
         //Jump -> Run
         if (keyHorizontal!=0)
         {
+            moveTracker.isRight = keyHorizontal > 0 ? true : false;
             stateController.ChangeState(PLAYER_STATE.RUN);
         }
     }

@@ -8,22 +8,25 @@ public class ClimbState : IState
     private PlayerStateController stateController;
     private PlayerMoveTracker moveTracker;
     private Rigidbody2D rigidbody;
-    private readonly float climbSpeed = 5f;
+    private readonly float climbSpeed = 15f;
     private float keyVertical;
     private GameObject ladder;
     public Vector3 ladderPos;
     public Vector3 playerPos;
+    private Animator animator;
 
     public ClimbState(PlayerStateController playerStateController, PlayerMoveTracker playerMoveTracker, Rigidbody2D rigidbody2D)
     {
         this.stateController = playerStateController;
         this.moveTracker = playerMoveTracker;
         this.rigidbody = rigidbody2D;
+        animator = stateController.GetComponent<Animator>();
     }
 
     public void Enter()
     {
         Debug.Log("Climb Enter()");
+        animator.SetBool("isClimbing", true);
         ladder = moveTracker.ladderObj;
         ladderPos = ladder.transform.position;
 
@@ -35,11 +38,11 @@ public class ClimbState : IState
 
         if (playerPos.x <= ladderPos.x)
         {
-            startPos = new Vector3(ladderPos.x - 0.5f, playerPos.y, 0);
+            startPos = new Vector3(ladderPos.x - 1.0f, playerPos.y, 0);
         }
         else
         {
-            startPos = new Vector3(ladderPos.x + 0.5f, playerPos.y, 0);
+            startPos = new Vector3(ladderPos.x + 1.0f, playerPos.y, 0);
         }
         stateController.transform.position = Vector3.MoveTowards(playerPos, startPos, 3.0f);
 
@@ -90,5 +93,6 @@ public class ClimbState : IState
     {
         Debug.Log("Climb Exit()");
         rigidbody.bodyType = RigidbodyType2D.Dynamic;
+        animator.SetBool("isClimbing", false);
     }
 }

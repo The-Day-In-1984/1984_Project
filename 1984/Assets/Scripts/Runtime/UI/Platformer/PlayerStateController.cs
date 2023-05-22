@@ -17,7 +17,6 @@ public class PlayerStateController : MonoBehaviour
         playerMoveTracker = GetComponent<PlayerMoveTracker>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         currentState = new IdleState(this, playerMoveTracker, rigidbody2D);
-
     }
 
     private void Start()
@@ -53,7 +52,7 @@ public class PlayerStateController : MonoBehaviour
                 break;
 
             case PLAYER_STATE.JUMP:
-                currentState = new JumpState(this, rigidbody2D);
+                currentState = new JumpState(this, playerMoveTracker, rigidbody2D);
                 break;
 
             case PLAYER_STATE.CLIMB:

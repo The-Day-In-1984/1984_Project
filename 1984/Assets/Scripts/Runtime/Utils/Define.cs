@@ -24,6 +24,12 @@
         Complete,
         Fail
     }
+    public enum TeleScreenType
+    {
+        Ready,
+        On,
+        Off
+    }
 }
 
 namespace Structs
@@ -34,36 +40,15 @@ namespace Structs
         public int score;
         public int level;
     }
-    public struct StoryData
+    public struct StoryData : IJsonData
     {
-        public struct DialogueData : IJsonData{
-            public string Id { get; set; }
-            public string Index { get; set; }
-            public string Option { get; set; }
-            public string Character { get; set; }
-            public string State { get; set;}
-            public string Text { get;  set;}
-        }
-        public struct OptionData : IJsonData{
-            public string Id { get; set; }
-            public string Index { get; set; }
-            public string Dialogue { get; set; }
-            public string Character { get; set; }
-            public string State { get; set;}
-            public string Text { get;  set;}
-        } 
-        public struct CharacterData : IJsonData{
-            
-            public string Id { get; set; }
-            public string Name { get; set; }
-            public string State { get; set;}
-            public string Art { get;  set;}
-        }
-        public struct SceneData : IJsonData{
-            
-            public string Id { get; set; }
-            public string Description { get;  set;}
-        }
+        public string Id { get; set; }
+        public string Type { get; set; }
+        public string Goto { get; set; }
+        public string Character { get; set; }
+        public string State { get; set;}
+        public string Text { get;  set;}
+        public string Scene { get;  set;}
     }
 } 
 
