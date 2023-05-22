@@ -17,7 +17,6 @@ public class CountLogic
     
     public void AddCount(float count)
     {
-        Debug.Log(_count);
         _count += count;
         onCountChanged?.Invoke();
         
