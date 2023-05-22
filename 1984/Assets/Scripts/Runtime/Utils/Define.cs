@@ -16,6 +16,14 @@
         Dialogue, 
         End,
     }
+
+    public enum TeleScreenType
+    {
+        Ready,
+        On,
+        Off
+    }
+
 }
 
 namespace Structs
