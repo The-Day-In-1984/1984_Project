@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Enums;
 
 public class ClickMission : BaseMission, IPointerClickHandler
 {
@@ -17,21 +18,16 @@ public class ClickMission : BaseMission, IPointerClickHandler
         _countLogic.onCountMax += OnMissionComplete;
     }
 
-    public override void OnMissionStart()
-    {
-        base.OnMissionStart();
-    }
-
-    public override void OnMissionComplete()
-    {
-        base.OnMissionComplete();
-    }
-
     public virtual void OnPointerClick(PointerEventData eventData)
     {
-        if (IsCompleted)
-            return;
-
-        _countLogic.AddCount(1);
+        MissionLogic();
+    }
+    
+    private void MissionLogic()
+    {
+        if (IsMissionState == MissionState.InProgress)
+        {
+            _countLogic.AddCount(1);
+        }
     }
 }

@@ -7,9 +7,9 @@ public class ClickEventMission : ClickMission
 {
     [SerializeField] private UnityEvent onCompleted;
     
-    public override void OnMissionStart()
+    public override void OnMissionInProgress()
     {
-        base.OnMissionStart();
+        base.OnMissionInProgress();
     }
 
     public override void OnMissionComplete()

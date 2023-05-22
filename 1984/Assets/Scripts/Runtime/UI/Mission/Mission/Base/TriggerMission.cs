@@ -1,8 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using Enums;
 
 public class TriggerMission : BaseMission
 {
@@ -21,14 +18,17 @@ public class TriggerMission : BaseMission
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (IsCompleted)
-        {
-            return;
-        }
+        MissionLogic(col);
+    }
 
-        if (col.CompareTag("Target"))
+    private void MissionLogic(Collider2D col)
+    {
+        if (IsMissionState == MissionState.InProgress)
         {
-            _timeLogic.AddCount(1);
+            if (col.CompareTag("Target"))
+            {
+                _timeLogic.AddCount(1);
+            }
         }
     }
 }

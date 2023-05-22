@@ -15,7 +15,15 @@
         Platformer,
         Dialogue, 
         End,
-    } 
+    }
+
+    public enum MissionState
+    {
+        Ready,
+        InProgress,
+        Complete,
+        Fail
+    }
 }
 
 namespace Structs

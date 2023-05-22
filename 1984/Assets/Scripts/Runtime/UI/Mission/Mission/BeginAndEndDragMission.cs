@@ -10,21 +10,11 @@ public class BeginAndEndDragMission : DragMission, IBeginDragHandler, IEndDragHa
     
     private Vector3 _startPosition;
 
-    protected override void Awake()
+    public override void OnMissionInProgress()
     {
-        base.Awake();
-    }
-
-    public override void OnMissionStart()
-    {
-        base.OnMissionStart();
+        base.OnMissionInProgress();
         
         _startPosition = transform.position;
-    }
-
-    public override void OnMissionComplete()
-    {
-        base.OnMissionComplete();
     }
     
     public virtual void OnDrag(PointerEventData eventData)

@@ -1,19 +1,20 @@
 ﻿using System;
 using UnityEngine;
+using Enums;
 
 public class BaseMission : MonoBehaviour, IMission
 {
     private MissionController _missionController;
-    private bool _isCompleted;
+    private MissionState _isMissionState;
     
     public event Action MissionCompleted;
-    public bool IsCompleted
+    public MissionState IsMissionState
     {
-        get { return _isCompleted; }
+        get { return _isMissionState; }
         private set
         {
-            _isCompleted = value;
-            if (_isCompleted)
+            _isMissionState = value;
+            if (_isMissionState == MissionState.Complete)
             {
                 MissionCompleted?.Invoke();
             }
@@ -25,14 +26,25 @@ public class BaseMission : MonoBehaviour, IMission
         _missionController = GetComponentInParent<MissionController>();
         _missionController.AddMission(this);
     }
-
-    public virtual void OnMissionStart()
+    
+    public virtual void OnMissionReady()
     {
-        IsCompleted = false;
+        IsMissionState = MissionState.Ready;
+    }
+    public virtual void OnMissionInProgress()
+    {
+        IsMissionState = MissionState.InProgress;
     }
 
     public virtual void OnMissionComplete()
     {
-        IsCompleted = true;
+        IsMissionState = MissionState.Complete;
     }
+    
+    public virtual void OnMissionFail()
+    {
+        IsMissionState = MissionState.Fail;
+    }
+    
+
 }

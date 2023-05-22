@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TriggerAlphaDownMission : TriggerMission
+public class TriggerAlphaMission : TriggerMission
 {
+    [SerializeField] private bool isDescending = true;
     private Image _image;
     
     private int _currentValue = 1;
@@ -22,15 +23,24 @@ public class TriggerAlphaDownMission : TriggerMission
     {
         if (_currentValue <= successValue)
         {
-            float startAlpha = _image.color.a;
-            float endAlpha = 0f;
+            float startAlpha;
+            float endAlpha;
 
-            float t = Mathf.Clamp01(_currentValue / (float)successValue); // 비율 계산
-
-            // 알파값 보간 계산
+            float t = Mathf.Clamp01(_currentValue / (float)successValue);
+            
+            if (isDescending)
+            {
+                startAlpha = 1f;
+                endAlpha = 0f;
+            }
+            else
+            {
+                startAlpha = 0f;
+                endAlpha = 1f;
+            }
+            
             float newAlpha = Mathf.Lerp(startAlpha, endAlpha, t);
-
-            // 이미지의 알파값 업데이트
+            
             Color newColor = _image.color;
             newColor.a = newAlpha;
             _image.color = newColor;

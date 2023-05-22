@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using Enums;
 
 public class TimeMission : BaseMission
 {
@@ -16,19 +17,10 @@ public class TimeMission : BaseMission
         _timeLogic = new CountLogic(successValue);
         _timeLogic.onCountMax += OnMissionComplete;
     }
-    public override void OnMissionStart()
-    {
-        base.OnMissionStart();
-    }
-
-    public override void OnMissionComplete()
-    {
-        base.OnMissionComplete();
-    }
     
     private IEnumerator StartCountCoroutine()
     {
-        while (!IsCompleted)
+        while (IsMissionState == MissionState.InProgress)
         {
             yield return new WaitForSeconds(Time.deltaTime);
             _timeLogic.AddCount(Time.deltaTime);

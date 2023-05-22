@@ -1,4 +1,5 @@
 using System;
+using Enums;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -19,27 +20,23 @@ public class DragMission : BaseMission, IDragHandler
         _distanceLogic.onSuccess += OnMissionComplete;
     }
 
-    public override void OnMissionStart()
-    {
-        base.OnMissionStart();
-    }
-
-    public override void OnMissionComplete()
-    {
-        base.OnMissionComplete();
-    }
-    
     public virtual void OnDrag(PointerEventData eventData)
     {
-        PositionUpdate(eventData.position);
-        
-        if(IsCompleted)
-            return;
-        _distanceLogic.DistanceCalculation();
+        MissionLogic(eventData);
     }
     
-    public void PositionUpdate(Vector2 position)
+    protected void PositionUpdate(Vector2 position)
     {
         transform.position = position;
+    }
+
+    private void MissionLogic(PointerEventData eventData)
+    {
+        PositionUpdate(eventData.position);
+
+        if (IsMissionState == MissionState.InProgress)
+        {
+            _distanceLogic.DistanceCalculation();
+        }
     }
 }
