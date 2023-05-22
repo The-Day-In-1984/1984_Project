@@ -10,12 +10,19 @@ public class MissionController : MonoBehaviour
     {
         _missions.Add(mission);
         mission.MissionCompleted += CheckMissionComplete;
+        mission.MissionFailed += CheckMissionFail;
     }
 
     protected virtual void CheckMissionComplete()
     {
-        Debug.Log("Check");
+        Debug.Log("성공 한번 체크");
     }
+    
+    protected virtual void CheckMissionFail()
+    {
+        Debug.Log("실패 한번 체크");
+    }
+
     
     protected void MissionComplete()
     {

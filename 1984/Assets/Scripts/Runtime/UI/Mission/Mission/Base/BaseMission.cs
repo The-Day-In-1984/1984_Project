@@ -8,6 +8,8 @@ public class BaseMission : MonoBehaviour, IMission
     private MissionState _isMissionState;
     
     public event Action MissionCompleted;
+    public event Action MissionFailed;
+
     public MissionState IsMissionState
     {
         get { return _isMissionState; }
@@ -17,6 +19,10 @@ public class BaseMission : MonoBehaviour, IMission
             if (_isMissionState == MissionState.Complete)
             {
                 MissionCompleted?.Invoke();
+            }
+            else if (_isMissionState == MissionState.Fail)
+            {
+                MissionFailed?.Invoke();
             }
         }
     }
