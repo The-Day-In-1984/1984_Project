@@ -7,6 +7,7 @@ public class MissionView : UIView
 {
     private void Update()
     {
+        //temp
         if(Input.GetKeyDown(KeyCode.E))
         {
             Destroy(this.gameObject);

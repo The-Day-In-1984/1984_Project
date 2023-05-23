@@ -1,9 +1,10 @@
 ﻿using System;
+using UnityEngine;
 
 public class CountLogic
 {
-    public Action OnCountChanged;
-    public Action OnCountMax;
+    public Action onCountChanged;
+    public Action onCountMax;
     
     private float _count;
     private readonly float _maxCount;
@@ -14,14 +15,14 @@ public class CountLogic
         _count = count;
     }
     
-    public void AddCount(int count)
+    public void AddCount(float count)
     {
         _count += count;
-        OnCountChanged?.Invoke();
+        onCountChanged?.Invoke();
         
         if (_count >= _maxCount)
         {
-            OnCountMax?.Invoke();
+            onCountMax?.Invoke();
         }
     }
 }
