@@ -372,6 +372,26 @@ PrefabInstance:
       propertyPath: reliabilityText
       value: 
       objectReference: {fileID: 796905034}
+    - target: {fileID: 1549661294903607924, guid: ecd43189cfa0ba644a9c28566ea1e80b, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1549661294903607924, guid: ecd43189cfa0ba644a9c28566ea1e80b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651113129275350427, guid: ecd43189cfa0ba644a9c28566ea1e80b, type: 3}
+      propertyPath: m_Value
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651113129275350427, guid: ecd43189cfa0ba644a9c28566ea1e80b, type: 3}
+      propertyPath: m_Transition
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651113129275350427, guid: ecd43189cfa0ba644a9c28566ea1e80b, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7561321526692986144, guid: ecd43189cfa0ba644a9c28566ea1e80b, type: 3}
       propertyPath: m_Name
       value: UIView_Platformer
@@ -458,6 +478,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7561321526692986148, guid: ecd43189cfa0ba644a9c28566ea1e80b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8989205925243720284, guid: ecd43189cfa0ba644a9c28566ea1e80b, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

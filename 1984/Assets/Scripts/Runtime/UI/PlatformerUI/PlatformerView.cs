@@ -1,12 +1,22 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlatformerView : UIView 
 {
     [SerializeField] private PlayerData playerData;
-    [SerializeField] private TextMeshProUGUI reliabilityText;
-    
+    [SerializeField] private Slider reliabilitySlider;
+    [SerializeField] private Color reliabilityColorLow;
+    [SerializeField] private Color reliabilityColorHigh;
+
+    private Image _sliderImage;
+    private void Awake()
+    {
+        _sliderImage = reliabilitySlider.fillRect.GetComponentInChildren<Image>();
+    }
+
     private void OnEnable()
     {
         playerData.reliability.onChange += UpdateReliabilityUI;
@@ -19,7 +29,7 @@ public class PlatformerView : UIView
 
     private void UpdateReliabilityUI(int hp)
     {
-        // Update UI
-        reliabilityText.text = hp.ToString();
+        reliabilitySlider.value = hp;
+        //_sliderImage.color = Color.Lerp(reliabilityColorLow, reliabilityColorHigh, reliabilitySlider.normalizedValue);
     }
 }
