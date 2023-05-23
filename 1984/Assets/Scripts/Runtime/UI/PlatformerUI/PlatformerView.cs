@@ -19,12 +19,12 @@ public class PlatformerView : UIView
 
     private void OnEnable()
     {
-        playerData.reliability.onChange += UpdateReliabilityUI;
+        playerData.Reliability.onChange += UpdateReliabilityUI;
     }
     
     private void OnDisable()
     {
-        playerData.reliability.onChange -= UpdateReliabilityUI;
+        playerData.Reliability.onChange -= UpdateReliabilityUI;
     }
 
     private void UpdateReliabilityUI(int hp)

@@ -7,9 +7,9 @@ public class test : MonoBehaviour
 {
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.S))
         {
-            var popup = GameManager.UI.PopupPush("UIMission_Money");
+            var popup = GameManager.UI.PopupPush("Mission_Telephone");
         }
     }
 }
