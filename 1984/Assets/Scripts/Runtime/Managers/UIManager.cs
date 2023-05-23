@@ -65,7 +65,7 @@ public class UIManager
         return null;
     }
     
-    public UIView PopupPush(string uiViewName, Queue<UIView> uiViews)
+    public UIView PopupPush(string uiViewName)
     {
         var view = GameManager.UI.GetUIView(uiViewName);
         
@@ -74,8 +74,7 @@ public class UIManager
             Debug.LogError($"[UIManager] PopupPush Error: {uiViewName}");
             return null;
         }
-
-        uiViews.Enqueue(view);
+        
         view.Show();
 
         return view;

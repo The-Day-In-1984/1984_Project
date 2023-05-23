@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,10 +6,7 @@ public class TitleState : IUIState
 {
     public async void OnEnter()
     {
-        SceneManager.LoadScene("Game_Title");
-
-        var loading = GameManager.UI.GetUIView("UIView_Loading");
-        loading.GetComponent<LoadingView>().SetLoadingText("로딩중", "로딩중입니다.");
+        LoadingSceneManager.LoadScene("Game_Title", "INTRO", "1984년, 유라시아 정보원");
     }
 
     public void OnExit()
@@ -19,13 +17,9 @@ public class TitleState : IUIState
 
 public class PlatformerState : IUIState
 {
-    public void OnEnter()
+    public async void OnEnter()
     {
-        SceneManager.LoadScene("Game_Platformer");
-        
-        var loading = GameManager.UI.GetUIView("UIView_Loading");
-        loading.GetComponent<LoadingView>().SetLoadingText("로딩중", "로딩중입니다.");
-        //Debug.Log("PlatformerState OnEnter");
+        LoadingSceneManager.LoadScene("Game_Platformer","DAY 1", "원스턴의 집");
     }
 
     public void OnExit()
@@ -38,8 +32,7 @@ public class DialogueState : IUIState
 {
     public void OnEnter()
     {
-        SceneManager.LoadScene("Game_Dialogue");
-        //Debug.Log("DialogueState OnEnter");
+        LoadingSceneManager.LoadScene("Game_Dialogue", "","");
     }
 
     public void OnExit()

@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game_Dialogue.unity
     guid: fe28cdecc23c21c44bf8f6ec8d6981b1
+  - enabled: 1
+    path: Assets/Scenes/LoadingScene.unity
+    guid: 2bf53cdda80476444bc99c2994ec1d7f
   m_configObjects: {}

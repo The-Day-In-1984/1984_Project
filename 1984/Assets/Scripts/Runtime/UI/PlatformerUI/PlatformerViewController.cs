@@ -10,21 +10,6 @@ public class PlatformerViewController : MonoBehaviour
 
     private void Start()
     {
-        playerData.reliability.Value = 100;
-        
-        
-    }
-
-    private void Update()
-    {
-        //temp
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            playerData.reliability.Value -= 10;
-            var popup = GameManager.UI.PopupPush("UIMission_Money", _uiViews);
-            
-            popup.gameObject.transform.SetParent(this.transform);
-            popup.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-        }
+        playerData.Reliability.Value = 100;
     }
 }
