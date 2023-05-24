@@ -15,4 +15,11 @@ public class DialogueViewController : MonoBehaviour
         _dialogueView.Show();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+        {
+            _dialogueView.Run();
+        }
+    }
 }
