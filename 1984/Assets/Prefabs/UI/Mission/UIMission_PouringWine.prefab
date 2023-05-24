@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8100188905068739286}
   - component: {fileID: 8842053617519308494}
   - component: {fileID: 3085392709214441589}
-  - component: {fileID: 8327607662395804965}
   m_Layer: 5
   m_Name: Target
   m_TagString: Target
@@ -104,19 +103,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 100, y: 100}
   m_EdgeRadius: 0
---- !u!114 &8327607662395804965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2130744416942451046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c7cdda188a777946909430e2c34fa75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  changeSprite: {fileID: 21300000, guid: 83d88a0d7c91bbc4e83c8613a2b5ed63, type: 3}
 --- !u!1 &2884460898430999903
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,13 +214,13 @@ MonoBehaviour:
   onCompleted:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8327607662395804965}
-        m_TargetAssemblyTypeName: SpriteChanger, Assembly-CSharp
-        m_MethodName: ChangeSprite
-        m_Mode: 1
+      - m_Target: {fileID: 8842053617519308494}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Image, UnityEngine.UI
+        m_MethodName: set_sprite
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 21300000, guid: 83d88a0d7c91bbc4e83c8613a2b5ed63, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -251,7 +237,6 @@ GameObject:
   - component: {fileID: 5833340620778692341}
   - component: {fileID: 4040524891183498832}
   - component: {fileID: 6834004211561269732}
-  - component: {fileID: 5801421629732656484}
   - component: {fileID: 5502704967762271822}
   m_Layer: 5
   m_Name: UIMission_PouringWine
@@ -320,18 +305,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5801421629732656484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4389497198898864865}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec8b691a20dcaba4b8900256abb0ea24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5502704967762271822
 MonoBehaviour:
   m_ObjectHideFlags: 0

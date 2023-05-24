@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ladder
   - Target
+  - MissionObject
   layers:
   - Default
   - TransparentFX
@@ -51,6 +52,9 @@ TagManager:
     locked: 0
   - name: Mission
     uniqueID: 607014261
+    locked: 0
+  - name: PlayerHide
+    uniqueID: 101316339
     locked: 0
   - name: Player
     uniqueID: 1484000079

@@ -65,24 +65,24 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         //temp
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            if (SceneManager.GetActiveScene().name == "Game_Title")
-            {
-                
-                GameManager.UI.ChangeState(GameState.Platformer);
-            }
-            else if (SceneManager.GetActiveScene().name == "Game_Platformer")
-            {
-                
-                GameManager.UI.ChangeState(GameState.Dialogue);
-            }
-            else
-            {
-                
-                GameManager.UI.ChangeState(GameState.Ttitle);
-            }
-        }
+        // if (Input.GetKeyDown(KeyCode.A))
+        // {
+        //     if (SceneManager.GetActiveScene().name == "Game_Title")
+        //     {
+        //         
+        //         GameManager.UI.ChangeState(GameState.Platformer);
+        //     }
+        //     else if (SceneManager.GetActiveScene().name == "Game_Platformer")
+        //     {
+        //         
+        //         GameManager.UI.ChangeState(GameState.Dialogue);
+        //     }
+        //     else
+        //     {
+        //         
+        //         GameManager.UI.ChangeState(GameState.Ttitle);
+        //     }
+        // }
     }
 
     public void Clear()
