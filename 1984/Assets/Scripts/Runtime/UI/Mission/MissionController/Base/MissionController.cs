@@ -1,15 +1,18 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class MissionController : MonoBehaviour
 {
     protected readonly List<IMission> _missions = new List<IMission>();
-    private UiMissionView _view;
+    private UIMissionView _view;
+
+    public bool IsComplete { get; private set; } = false;
 
     private void Awake()
     {
-        _view = GetComponentInParent<UiMissionView>();
+        _view = GetComponentInParent<UIMissionView>();
     }
 
     public void AddMission(IMission mission)
@@ -39,6 +42,7 @@ public class MissionController : MonoBehaviour
         //_view.Test();
         
         Debug.Log("성공");
+        IsComplete = true;
     }
     
     protected void MissionFail()
@@ -49,5 +53,16 @@ public class MissionController : MonoBehaviour
         _view.Hide();
         
         Debug.Log("실패");
+        IsComplete = true;
+    }
+    
+    public async Task MissionComplete(Action callBack)
+    {
+        while (!IsComplete)
+        {
+            await Task.Yield();
+        }
+        
+        callBack?.Invoke();
     }
 } 

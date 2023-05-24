@@ -11,6 +11,8 @@ public class UIManager
     
     private const string UIViewPath = "UI/";
     private readonly Dictionary<string, UIView> uiViewDictionary = new Dictionary<string, UIView>();
+    
+    private readonly Dictionary<string, UIMissionView> _uiMissionDictionary = new Dictionary<string, UIMissionView>();
 
     public void Init()
     {
@@ -43,17 +45,25 @@ public class UIManager
             {
                 return uiViewPrefab;
             }
-            
+
+            if (_uiMissionDictionary.ContainsKey(uiViewName))
+            {
+                return _uiMissionDictionary[uiViewName];
+            }
+
             uiViewPrefab = GameManager.Resource.Load<UIView>(UIViewPath + uiViewName);
             if (uiViewPrefab == null)
             {
                 throw new Exception("Resource 폴더에 없거나 씬에 존재하지 않는 UIView입니다..! : " + uiViewName + "을 확인해주세요!");
             }
 
-            //uiViewDictionary.Add(uiViewName, uiViewPrefab);
-            
             uiViewPrefab = GameObject.Instantiate(uiViewPrefab);
             uiViewPrefab.name = uiViewName;
+            
+            if (uiViewPrefab.TryGetComponent<UIMissionView>(out var uiMissionView))
+            {
+                _uiMissionDictionary.Add(uiViewName, uiMissionView);
+            }
             
             return uiViewPrefab;
         }
