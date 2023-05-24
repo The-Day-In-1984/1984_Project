@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Enums;
 using Structs;
 using TMPro;
 using Unity.VisualScripting;
@@ -36,18 +37,16 @@ public class DialogueView : UIView
         _optionGameObject = GameObject.Find("OptionButton");
         _backgroundImg = GameObject.Find("BackgroundImg").GetComponent<Image>();
     }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Keypad1))
-        {
-            StartDialogue("0");
-        }
-        else if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Run();
-        }
-    }
 
+    public override void Show()
+    {
+        StartDialogue("0");
+    }
+    public override void Hide()
+    {
+        GameManager.UI.ChangeState(GameState.Platformer);
+    }
+    
     public void StartDialogue(string id)
     {
         GotoId(id);
