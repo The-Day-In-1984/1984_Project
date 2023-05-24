@@ -26,13 +26,10 @@ public class PlayerMissionInteraction : MonoBehaviour
             nearestMissionObject.GetComponent<MissionObject>().DisableOutline();
             nearestMissionObject = null;
         }
-    }
 
-    private void OnTriggerStay2D(Collider2D other)
-    {
         if (other.CompareTag(MissionObjectTag))
         {
-            nearestMissionObject = other;
+            other.GetComponent<MissionObject>().DisableOutline();
         }
     }
 
