@@ -286,12 +286,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8362209369024586491, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 391075485717572601}
     m_RemovedComponents:
     - {fileID: 5801421629732656484, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
 --- !u!224 &117625717242050697 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5833340620778692341, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
+  m_PrefabInstance: {fileID: 5860823123103278716}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &391075485717572601 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6068796765429583237, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
   m_PrefabInstance: {fileID: 5860823123103278716}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &7908166903255205021 stripped
@@ -346,7 +355,7 @@ MonoBehaviour:
   tweenTargetIsTargetGO: 1
   delay: 0
   duration: 1
-  easeType: 30
+  easeType: 1
   easeCurve:
     serializedVersion: 2
     m_Curve:
