@@ -49,6 +49,8 @@ public class TelescreenAnimationController : MonoBehaviour
 
     private void PlayReadyAnimation()
     {
+        Debug.Log(nameof(TeleScreen.ReadyState));
+        animator.Play(nameof(TeleScreen.ReadyState));
         //Debug.Log("ReadyAnimation");
     }
 
