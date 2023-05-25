@@ -34,6 +34,6 @@ public class TitleViewController : MonoBehaviour
     
     private void OnExitButtonClick()
     {
-        Debug.Log("Exit");
+        Application.Quit();
     }
 }

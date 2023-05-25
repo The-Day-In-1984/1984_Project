@@ -34,7 +34,7 @@ public class SoundManager : MonoBehaviour
     {
         bgmSource.clip = bgmClip;
         bgmSource.loop = true;
-        //bgmSource.Play(); //temp
+        bgmSource.Play(); //temp
     }
 
     public void PlayEffect(string effectClipName)
