@@ -25,8 +25,10 @@ public class DialogueView : UIView
     private List<GameObject> _optionGameObjectList = new List<GameObject>();
     private Image _backgroundImg;
     private int _currentIdx = -1;
+    private string _nextId = "0";
     private readonly string _dialoguePath = "Dialogue/";
     private Dictionary<string, Color> _characterColors = new Dictionary<string, Color>();
+    private TypingEffect _typingEffect;
     private void Awake()
     {
         _characterImgList.Add(GameObject.Find("LeftCharacterImg").GetComponent<Image>());
@@ -36,10 +38,18 @@ public class DialogueView : UIView
         _optionPanel = GameObject.Find("OptionPanel");
         _optionGameObject = GameObject.Find("OptionButton");
         _backgroundImg = GameObject.Find("BackgroundImg").GetComponent<Image>();
+        _typingEffect = gameObject.AddComponent<TypingEffect>();
     }
+
+    private void Start()
+    {
+        _typingEffect.Init(_dialogueText);
+    }
+
     public override void Show()
     {
         StartDialogue("0");
+        
     }
     public override void Hide()
     {
@@ -89,19 +99,21 @@ public class DialogueView : UIView
     public void Run()
     {
         if (_state == state.option) return;
-        ChangeDialogue();
+        if(_typingEffect.IsTypingNull()) ChangeDialogue();
         if (IsFinishDialogue())
         {
             Hide();
             return;
         }
 
-        switch (_storyDataList[_currentIdx].Type)
+        
+        if (_storyDataList[_currentIdx].Type == "Option" && _storyDataList == GameManager.Data.StoryData[_nextId]) _state = state.option;
+        switch (_state)
         {
-            case "Dialogue":
+            case state.dialogue:
                 ShowDialogue();
                 break;
-            case "Option":
+            case state.option:
                 ShowOption();
                 break;
         }
@@ -116,7 +128,8 @@ public class DialogueView : UIView
             ++_currentIdx;
         else if (!_storyDataList[_currentIdx].Goto.IsUnityNull())
         {
-            GotoId(_storyDataList[_currentIdx].Goto);
+            _nextId = _storyDataList[_currentIdx].Goto;
+            GotoId(_nextId);
             ChangeDialogue();
         }
         else
@@ -133,7 +146,7 @@ public class DialogueView : UIView
     private void ChangeTexts()
     {
         _nameText.text = _storyDataList[_currentIdx].Character;
-        _dialogueText.text = _storyDataList[_currentIdx].Text;
+        _typingEffect.StartTyping(_storyDataList[_currentIdx].Text);
     }
 
     private void ChangeCharacterImgColor()
@@ -183,8 +196,9 @@ public class DialogueView : UIView
     private void SelectOption(string id, int idx)
     {
         _currentIdx = idx;
+        _nextId = id;
+        _state = state.dialogue;
         ShowDialogue();
-        GotoId(id);
         CloseOptions();
     }
     private void CloseOptions()
