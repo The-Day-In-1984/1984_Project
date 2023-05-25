@@ -32,20 +32,28 @@ public class MissionController : MonoBehaviour
        
     }
     
-    protected void MissionComplete()
+    protected async void MissionComplete()
     {
         GameManager.Data.SetReliability(10);
-        _view.Hide();
-        
         IsComplete = true;
+        
+        SoundManager.instance.PlayEffect("Mission_Clear");
+
+        await Task.Delay(2000);
+
+        _view.Hide();
     }
     
-    protected void MissionFail()
+    protected async void MissionFail()
     {
         GameManager.Data.SetReliability(-10);
-        _view.Hide();
-        
         IsComplete = true;
+        
+        SoundManager.instance.PlayEffect("Mission_Fail");
+        
+        await Task.Delay(2000);
+        
+        _view.Hide();
     }
     
     public async Task MissionComplete(Action callBack)

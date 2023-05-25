@@ -49,18 +49,23 @@ public class TelescreenAnimationController : MonoBehaviour
 
     private void PlayReadyAnimation()
     {
+        animator.Play(nameof(TeleScreen.ReadyState));
+        
+        
         //Debug.Log("ReadyAnimation");
     }
 
     private void PlayOnAnimation()
     {
-        //Debug.Log("OnAnimation");
-        bigBrother.SetActive(true);
+        animator.Play(nameof(TeleScreen.OnState));
+        
+        //bigBrother.SetActive(true);
     }
 
     private void PlayOffAnimation()
     {
-        bigBrother.SetActive(false);
-        //Debug.Log("OffAnimation");
+        animator.Play(nameof(TeleScreen.OffState));
+        
+        //bigBrother.SetActive(false);
     }
 }

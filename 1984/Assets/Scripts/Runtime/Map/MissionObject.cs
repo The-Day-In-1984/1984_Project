@@ -36,6 +36,7 @@ public class MissionObject : MonoBehaviour
     private void MissionComplete()
     {
         gameObject.tag = "Untagged";
+        _sphereRenderer.material.DisableKeyword("DOODLE_ON");
         DisableOutline();
     }
 }

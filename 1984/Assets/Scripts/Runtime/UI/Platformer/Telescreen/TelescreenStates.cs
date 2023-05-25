@@ -62,7 +62,10 @@ namespace TeleScreen
             curTime = 0f;
             targetTime = telescreen.onTime;
             playerMoveTracker.isTraces = true;
+            
+            GameManager.Data.SetIsMission(true);
         }
+        
 
         public void OnExcute()
         {
@@ -79,6 +82,8 @@ namespace TeleScreen
         {
             //Debug.Log("OnState OnExit");
             playerMoveTracker.isTraces = false;
+            
+            GameManager.Data.SetIsMission(false);
         }
     }
 
