@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class ClickEventMission : ClickMission
 {
     [SerializeField] private UnityEvent onCompleted;
-    
+
     public override void OnMissionInProgress()
     {
         base.OnMissionInProgress();
