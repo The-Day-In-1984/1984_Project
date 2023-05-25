@@ -8,6 +8,9 @@ public class DataManager
     private readonly JsonDataConverter<StoryData> _storyDataConverter = new JsonDataConverter<StoryData>();
     private PlayerData _playerData;
     
+    // Temp
+    public string _curDialogueId { get; set; } = "0";
+
     private const string PlayerDataPath = "Data/PlayerData";
 
     public void Init()

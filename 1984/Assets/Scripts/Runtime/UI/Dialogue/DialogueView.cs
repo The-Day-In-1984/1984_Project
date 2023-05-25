@@ -52,7 +52,7 @@ public class DialogueView : UIView
 
     public override void Show()
     {
-        StartDialogue("0");
+        StartDialogue(GameManager.Data._curDialogueId);
         
     }
     public override void Hide()
