@@ -10,7 +10,7 @@ public class OrderNotFailMissionController : MissionController
     {
         AllMissionReady();
         
-        _missions.Reverse();
+        //_missions.Reverse();
 
         _missions[_currentMissionIndex].OnMissionInProgress();
     }
