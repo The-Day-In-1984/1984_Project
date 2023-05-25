@@ -20,6 +20,11 @@ public class SameNumberLogicMission : LogicMission
     
     private void SameNumberCheck()
     {
+        if (IsMissionState != MissionState.InProgress)
+        {
+            return;
+        }
+
         if (_number.Equals(successValue.ToString()))
         {
             OnMissionComplete();

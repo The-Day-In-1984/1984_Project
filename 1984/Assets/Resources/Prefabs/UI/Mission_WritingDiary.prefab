@@ -198,6 +198,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2326538356245615329}
     m_Modifications:
+    - target: {fileID: 2566560356245805956, guid: cb1f46e08a45208449907284b721d6cb, type: 3}
+      propertyPath: m_Size.y
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3931255011005094545, guid: cb1f46e08a45208449907284b721d6cb, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -282,14 +286,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5392660037775932585, guid: cb1f46e08a45208449907284b721d6cb, type: 3}
+      propertyPath: m_Size.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5880840848901421422, guid: cb1f46e08a45208449907284b721d6cb, type: 3}
+      propertyPath: m_Size.y
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 6525732953320875653, guid: cb1f46e08a45208449907284b721d6cb, type: 3}
       propertyPath: m_Name
       value: UIMission_WritingDiary
+      objectReference: {fileID: 0}
+    - target: {fileID: 6814545247593444310, guid: cb1f46e08a45208449907284b721d6cb, type: 3}
+      propertyPath: m_Size.y
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8702446937890608208, guid: cb1f46e08a45208449907284b721d6cb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 3171012309487643244}
+    - target: {fileID: 8749671971588969656, guid: cb1f46e08a45208449907284b721d6cb, type: 3}
+      propertyPath: m_Size.y
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb1f46e08a45208449907284b721d6cb, type: 3}
 --- !u!224 &4381369222077429159 stripped
