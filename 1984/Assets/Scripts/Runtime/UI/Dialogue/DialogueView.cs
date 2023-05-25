@@ -26,7 +26,7 @@ public class DialogueView : UIView
     private Image _backgroundImg;
     private int _currentIdx = -1;
     private readonly string _dialoguePath = "Dialogue/";
-
+    private Dictionary<string, Color> _characterColors = new Dictionary<string, Color>();
     private void Awake()
     {
         _characterImgList.Add(GameObject.Find("LeftCharacterImg").GetComponent<Image>());
@@ -37,7 +37,6 @@ public class DialogueView : UIView
         _optionGameObject = GameObject.Find("OptionButton");
         _backgroundImg = GameObject.Find("BackgroundImg").GetComponent<Image>();
     }
-
     public override void Show()
     {
         StartDialogue("0");
@@ -62,14 +61,17 @@ public class DialogueView : UIView
     }
     private void InitCharacter()
     {
-        string img = _storyDataList[0].Character + _storyDataList[0].State;
-        _characterImgList[0].sprite = GameManager.Resource.LoadSprite(_dialoguePath + img);
+        string imgStr1 = _storyDataList[0].Character + _storyDataList[0].State;
+        _characterImgList[0].sprite = GameManager.Resource.LoadSprite(_dialoguePath + imgStr1);
+        _characterColors.Add(imgStr1,new Color(1,1,1,0));
         foreach (var storyData in _storyDataList)
         {
-            if (storyData.Character + storyData.State != img)
+            string imgStr2 = storyData.Character + storyData.State;
+            if (storyData.Character + storyData.State != imgStr1)
             {
                 _characterImgList[1].sprite =
                     GameManager.Resource.LoadSprite(_dialoguePath + storyData.Character + storyData.State);
+                _characterColors.Add(imgStr2,new Color(1,1,1,0));
                 break;
             }
         }
@@ -78,9 +80,6 @@ public class DialogueView : UIView
         {
             if (characterimg.IsUnityNull()) throw new Exception("캐릭터 이미지가 없어용");
         }
-
-        foreach (var cImg in _characterImgList)
-            cImg.color = new Color(1, 1, 1, 0.5f);
     }
     private void InitBackgroundImg()
     {
@@ -128,7 +127,7 @@ public class DialogueView : UIView
     {
         _state = state.dialogue;
         ChangeTexts();
-        ChangeFocusCharacterImg();
+        ChangeCharacterImgColor();
     }
 
     private void ChangeTexts()
@@ -137,14 +136,23 @@ public class DialogueView : UIView
         _dialogueText.text = _storyDataList[_currentIdx].Text;
     }
 
-    private void ChangeFocusCharacterImg()
+    private void ChangeCharacterImgColor()
     {
+        string characterName = _storyDataList[_currentIdx].Character +_storyDataList[_currentIdx].State;
+        
+        _characterColors[characterName] = Color.white;
+
         foreach (var img in _characterImgList)
         {
-            if (img.sprite.name == _storyDataList[_currentIdx].Character + _storyDataList[_currentIdx].State)
-                img.color = new Color(1, 1, 1, 1f);
-            else
-                img.color = new Color(1, 1, 1, 0.5f);
+            img.color = _characterColors[img.sprite.name];
+        }
+        if (_storyDataList[_currentIdx].Active == "false")
+        {
+            _characterColors[characterName] = Color.clear;
+        }
+        else
+        {
+            _characterColors[characterName] = new Color(1, 1, 1, 0.5f);
         }
     }
 
@@ -164,7 +172,7 @@ public class DialogueView : UIView
         optionObj.GetComponent<RectTransform>().anchoredPosition =
             new Vector3(Screen.width * 0.5f, Screen.height * 0.5f - 60 * GetOptionCount() * i + 60 * GetOptionCount());
         optionObj.transform.parent = _optionPanel.transform;
-        optionObj.GetComponent<Button>().onClick.AddListener(() => SelectOption(_storyDataList[idx].Goto));
+        optionObj.GetComponent<Button>().onClick.AddListener(() => SelectOption(_storyDataList[idx].Goto, idx));
         optionObj.GetComponentInChildren<TextMeshProUGUI>().text = _storyDataList[idx].Text;
         optionObj.SetActive(true);
     }
@@ -172,11 +180,11 @@ public class DialogueView : UIView
     {
         return _storyDataList.Count - _currentIdx;
     }
-    private void SelectOption(string id)
+    private void SelectOption(string id, int idx)
     {
-        GotoId(id);
-        ChangeDialogue();
+        _currentIdx = idx;
         ShowDialogue();
+        GotoId(id);
         CloseOptions();
     }
     private void CloseOptions()
