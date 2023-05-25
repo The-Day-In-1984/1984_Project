@@ -30,4 +30,14 @@ public class DataManager
     {
         _playerData.Reliability.Value += reliability;
     }
+    
+    public void SetIsMission(bool isMission)
+    {
+        _playerData.IsMission.Value = isMission;
+    }
+    
+    public bool GetIsMission()
+    {
+        return _playerData.IsMission.Value;
+    }
 }

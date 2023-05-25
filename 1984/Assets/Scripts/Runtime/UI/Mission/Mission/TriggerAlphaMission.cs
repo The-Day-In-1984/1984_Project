@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class TriggerAlphaMission : TriggerMission
 {
     [SerializeField] private bool isDescending = true;
+    [SerializeField] private UnityEvent onProgress;
+    
     private Image _image;
     
     private int _currentValue = 1;
@@ -17,6 +20,7 @@ public class TriggerAlphaMission : TriggerMission
         _image = GetComponent<Image>();
         
         _timeLogic.onCountChanged += AlphaDown;
+        _timeLogic.onCountChanged += () => onProgress?.Invoke();
     }
     
     private void AlphaDown()
