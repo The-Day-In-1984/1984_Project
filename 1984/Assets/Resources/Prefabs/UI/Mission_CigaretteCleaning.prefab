@@ -59,7 +59,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 5889142898225701187}
   - component: {fileID: 5889142898225701184}
   m_Layer: 5
-  m_Name: BackGround
+  m_Name: AlphaPenel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -198,6 +198,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5889142897956116653}
     m_Modifications:
+    - target: {fileID: 1436917412, guid: 8d898ceafdebf754a91dfdce8d690d71, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: f77b611d97f092a4d87abb062d7b5a98, type: 2}
+    - target: {fileID: 234659670512064301, guid: 8d898ceafdebf754a91dfdce8d690d71, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6769548955077435424}
     - target: {fileID: 3274241777966905857, guid: 8d898ceafdebf754a91dfdce8d690d71, type: 3}
       propertyPath: m_Name
       value: UIMission_CigaretteCleaning
@@ -232,11 +240,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4714953928185955861, guid: 8d898ceafdebf754a91dfdce8d690d71, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1520
+      value: 1400
       objectReference: {fileID: 0}
     - target: {fileID: 4714953928185955861, guid: 8d898ceafdebf754a91dfdce8d690d71, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 680
+      value: 901
       objectReference: {fileID: 0}
     - target: {fileID: 4714953928185955861, guid: 8d898ceafdebf754a91dfdce8d690d71, type: 3}
       propertyPath: m_LocalPosition.x
@@ -285,10 +293,6 @@ PrefabInstance:
     - target: {fileID: 4714953928185955861, guid: 8d898ceafdebf754a91dfdce8d690d71, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7658747693136875725, guid: 8d898ceafdebf754a91dfdce8d690d71, type: 3}
-      propertyPath: easeType
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d898ceafdebf754a91dfdce8d690d71, type: 3}

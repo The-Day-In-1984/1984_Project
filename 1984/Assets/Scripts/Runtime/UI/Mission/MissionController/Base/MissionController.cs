@@ -32,12 +32,14 @@ public class MissionController : MonoBehaviour
        
     }
     
-    protected void MissionComplete()
+    protected async void MissionComplete()
     {
         GameManager.Data.SetReliability(10);
-        _view.Hide();
-        
         IsComplete = true;
+
+        await Task.Delay(2000);
+
+        _view.Hide();
     }
     
     protected void MissionFail()

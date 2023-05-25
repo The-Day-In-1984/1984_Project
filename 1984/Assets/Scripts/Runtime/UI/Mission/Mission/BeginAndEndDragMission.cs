@@ -14,12 +14,7 @@ public class BeginAndEndDragMission : DragMission, IBeginDragHandler, IEndDragHa
     {
         base.OnMissionInProgress();
         
-        _startPosition = transform.position;
-    }
-    
-    public virtual void OnDrag(PointerEventData eventData)
-    {
-        base.OnDrag(eventData);
+        //_startPosition = transform.position;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -29,7 +24,7 @@ public class BeginAndEndDragMission : DragMission, IBeginDragHandler, IEndDragHa
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        PositionUpdate(_startPosition);
+        //PositionUpdate(_startPosition);
         
         onEndDrag?.Invoke();
     }
