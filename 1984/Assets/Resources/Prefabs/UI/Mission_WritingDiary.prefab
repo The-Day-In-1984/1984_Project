@@ -198,18 +198,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2326538356245615329}
     m_Modifications:
-    - target: {fileID: 1202479211114525102, guid: cb1f46e08a45208449907284b721d6cb, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: f77b611d97f092a4d87abb062d7b5a98, type: 2}
-    - target: {fileID: 2362780910627367202, guid: cb1f46e08a45208449907284b721d6cb, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: f77b611d97f092a4d87abb062d7b5a98, type: 2}
-    - target: {fileID: 3477656513208619343, guid: cb1f46e08a45208449907284b721d6cb, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: f77b611d97f092a4d87abb062d7b5a98, type: 2}
     - target: {fileID: 3931255011005094545, guid: cb1f46e08a45208449907284b721d6cb, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -294,32 +282,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5013466306926497876, guid: cb1f46e08a45208449907284b721d6cb, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: f77b611d97f092a4d87abb062d7b5a98, type: 2}
-    - target: {fileID: 5880840848901421423, guid: cb1f46e08a45208449907284b721d6cb, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: f77b611d97f092a4d87abb062d7b5a98, type: 2}
     - target: {fileID: 6525732953320875653, guid: cb1f46e08a45208449907284b721d6cb, type: 3}
       propertyPath: m_Name
       value: UIMission_WritingDiary
       objectReference: {fileID: 0}
-    - target: {fileID: 6934124087123575713, guid: cb1f46e08a45208449907284b721d6cb, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: f77b611d97f092a4d87abb062d7b5a98, type: 2}
     - target: {fileID: 8702446937890608208, guid: cb1f46e08a45208449907284b721d6cb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 3171012309487643244}
-    - target: {fileID: 8702446937890608208, guid: cb1f46e08a45208449907284b721d6cb, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Hide
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3961027772801585408, guid: cb1f46e08a45208449907284b721d6cb, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb1f46e08a45208449907284b721d6cb, type: 3}
 --- !u!224 &4381369222077429159 stripped
 RectTransform:

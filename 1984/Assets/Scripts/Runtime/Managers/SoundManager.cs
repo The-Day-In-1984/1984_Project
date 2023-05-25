@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -11,8 +12,9 @@ public class SoundManager : MonoBehaviour
     public AudioSource effectSource;
 
     public AudioClip bgmClip;
-    public AudioClip[] effectClips;
-
+    
+    private Dictionary<string, AudioClip> _effectClips = new Dictionary<string, AudioClip>();
+    
     private void Awake()
     {
         if (instance == null)
@@ -24,19 +26,28 @@ public class SoundManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
+        EffectClipsLoad();
     }
 
     private void Start()
     {
         bgmSource.clip = bgmClip;
         bgmSource.loop = true;
-        bgmSource.Play();
+        //bgmSource.Play(); //temp
     }
 
-    public void PlayEffect(int index)
+    public void PlayEffect(string effectClipName)
     {
-        effectSource.clip = effectClips[index];
-        effectSource.Play();
+        if (_effectClips.ContainsKey(effectClipName))
+        {
+            var effectClip = _effectClips[effectClipName];
+            effectSource.PlayOneShot(effectClip);
+        }
+        else
+        {
+            Debug.LogError($"EffectClipName: {effectClipName} is not exist");
+        }
     }
 
     public void SetBGMVolume(float volume)
@@ -47,5 +58,16 @@ public class SoundManager : MonoBehaviour
     public void SetEffectVolume(float volume)
     {
         audioMixer.SetFloat("EffectVolume", volume);
+    }
+
+    private void EffectClipsLoad()
+    {
+        var sfxList = Resources.LoadAll<AudioClip>("Sounds/SFX/");
+        
+        foreach (var sfx in sfxList)
+        {
+            Debug.Log(sfx.name);
+            _effectClips.Add(sfx.name, sfx);
+        }
     }
 }

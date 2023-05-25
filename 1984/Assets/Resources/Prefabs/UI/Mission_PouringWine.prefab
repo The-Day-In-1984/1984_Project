@@ -198,29 +198,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8889835564438309789}
     m_Modifications:
-    - target: {fileID: 502190431333204662, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: f77b611d97f092a4d87abb062d7b5a98, type: 2}
     - target: {fileID: 637928185745374269, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8581396830603670288}
-    - target: {fileID: 637928185745374269, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Hide
-      objectReference: {fileID: 0}
-    - target: {fileID: 4129824104875425671, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: f77b611d97f092a4d87abb062d7b5a98, type: 2}
     - target: {fileID: 4389497198898864865, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
       propertyPath: m_Name
       value: UIMission_PouringWine
-      objectReference: {fileID: 0}
-    - target: {fileID: 5784724378328964186, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5833340620778692341, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
       propertyPath: m_Pivot.x
@@ -306,66 +290,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6054913667671632801, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 117625717242050697}
-    - target: {fileID: 7011095113174278769, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
-      propertyPath: hasOnComplete
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7011095113174278769, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
-      propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7011095113174278769, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
-      propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7011095113174278769, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
-      propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2691281800374781063}
-    - target: {fileID: 7011095113174278769, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
-      propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7011095113174278769, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
-      propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetStartPosition
-      objectReference: {fileID: 0}
-    - target: {fileID: 7011095113174278769, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
-      propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: BeginAndEndDragMission, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 7011095113174278769, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
-      propertyPath: onComplete.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 8362209369024586491, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 391075485717572601}
-    - target: {fileID: 8362209369024586491, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
-      propertyPath: onBeginDrag.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8362209369024586491, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
-      propertyPath: onBeginDrag.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8362209369024586491, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
-      propertyPath: onBeginDrag.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8362209369024586491, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
-      propertyPath: onBeginDrag.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: DG.Tweening.DOTweenAnimation, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8842053617519308494, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: f77b611d97f092a4d87abb062d7b5a98, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
 --- !u!224 &117625717242050697 stripped
@@ -373,19 +297,3 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5833340620778692341, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
   m_PrefabInstance: {fileID: 5860823123103278716}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &391075485717572601 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6068796765429583237, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
-  m_PrefabInstance: {fileID: 5860823123103278716}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2691281800374781063 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8362209369024586491, guid: 7a1fef89a87b1f141b358890ae1d146e, type: 3}
-  m_PrefabInstance: {fileID: 5860823123103278716}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c696c221163469e815dcb28886d5518, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
