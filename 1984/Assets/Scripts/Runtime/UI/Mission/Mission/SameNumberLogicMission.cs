@@ -5,7 +5,7 @@ using Enums;
 public class SameNumberLogicMission : LogicMission
 {
     [Header("Target")]
-    [SerializeField] private int successValue = 1234;
+    [SerializeField] private string successValue = "1234";
 
     private CountLogic _countLogic;
     private string _number = "";
@@ -30,9 +30,9 @@ public class SameNumberLogicMission : LogicMission
         }
     }
     
-    public void AddNumber(int number)
+    public void AddString(string number)
     {
-        _number += number.ToString();
+        _number += number;
         _countLogic.AddCount(1);
     }
 }
