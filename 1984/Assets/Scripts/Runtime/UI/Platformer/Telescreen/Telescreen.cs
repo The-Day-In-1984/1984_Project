@@ -19,7 +19,7 @@ public class Telescreen : MonoBehaviour
     public float offMaxTime = 6f;
 
     private readonly Dictionary<TeleScreenType, ITelescreen> stateDictinoary = new Dictionary<TeleScreenType, ITelescreen>();
-    private ITelescreen currentState;
+    public ITelescreen currentState;
 
 
     private void Start()
@@ -47,6 +47,7 @@ public class Telescreen : MonoBehaviour
         {
             //Debug.Log(this.gameObject.ToString());
             currentState.OnExcute();
+            Debug.Log(currentState);
         }
     }
 
