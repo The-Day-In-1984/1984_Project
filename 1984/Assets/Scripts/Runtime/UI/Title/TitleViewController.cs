@@ -19,7 +19,7 @@ public class TitleViewController : MonoBehaviour
     
     private void OnStartButtonClick()
     {
-        GameManager.UI.ChangeState(GameState.Platformer);
+        GameManager.UI.ChangeState(GameState.Dialogue);
     }
     
     private void OnLoadButtonClick()

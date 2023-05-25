@@ -19,28 +19,41 @@ public class DialogueView : UIView
     private GameObject _optionPanel;
     private GameObject _optionGameObject;
     private List<Image> _characterImgList = new List<Image>();
+    private TextMeshProUGUI _sceneText;
     private TextMeshProUGUI _nameText;
     private TextMeshProUGUI _dialogueText;
     private TextMeshProUGUI _optionText;
     private List<GameObject> _optionGameObjectList = new List<GameObject>();
     private Image _backgroundImg;
     private int _currentIdx = -1;
+    private string _nextId = "0";
     private readonly string _dialoguePath = "Dialogue/";
+    private TypingEffect _typingEffect;
 
+    private bool _isTurnOffLastImg = false;
+    private Image _lastImg;
     private void Awake()
     {
-        _characterImgList.Add(GameObject.Find("LeftCharacterImg").GetComponent<Image>());
         _characterImgList.Add(GameObject.Find("RightCharacterImg").GetComponent<Image>());
+        _characterImgList.Add(GameObject.Find("LeftCharacterImg").GetComponent<Image>());
+        _sceneText =  GameObject.Find("SceneText").GetComponent<TextMeshProUGUI>();
         _nameText = GameObject.Find("NameText").GetComponent<TextMeshProUGUI>();
         _dialogueText = GameObject.Find("DialogueText").GetComponent<TextMeshProUGUI>();
         _optionPanel = GameObject.Find("OptionPanel");
         _optionGameObject = GameObject.Find("OptionButton");
         _backgroundImg = GameObject.Find("BackgroundImg").GetComponent<Image>();
+        _typingEffect = gameObject.AddComponent<TypingEffect>();
+    }
+
+    private void Start()
+    {
+        _typingEffect.Init(_dialogueText);
     }
 
     public override void Show()
     {
-        StartDialogue("0");
+        StartDialogue(GameManager.Data._curDialogueId);
+        
     }
     public override void Hide()
     {
@@ -51,7 +64,7 @@ public class DialogueView : UIView
     {
         GotoId(id);
         InitBackgroundImg();
-        InitCharacter();
+        InitSceneText();
         _optionPanel.SetActive(false);
         _optionGameObject.SetActive(false);
     }
@@ -60,49 +73,32 @@ public class DialogueView : UIView
         _currentIdx = -1;
         _storyDataList = GameManager.Data.StoryData[id];
     }
-    private void InitCharacter()
-    {
-        string img = _storyDataList[0].Character + _storyDataList[0].State;
-        _characterImgList[0].sprite = GameManager.Resource.LoadSprite(_dialoguePath + img);
-        foreach (var storyData in _storyDataList)
-        {
-            if (storyData.Character + storyData.State != img)
-            {
-                _characterImgList[1].sprite =
-                    GameManager.Resource.LoadSprite(_dialoguePath + storyData.Character + storyData.State);
-                break;
-            }
-        }
-
-        foreach (var characterimg in _characterImgList)
-        {
-            if (characterimg.IsUnityNull()) throw new Exception("캐릭터 이미지가 없어용");
-        }
-
-        foreach (var cImg in _characterImgList)
-            cImg.color = new Color(1, 1, 1, 0.5f);
-    }
     private void InitBackgroundImg()
     {
         _backgroundImg.sprite = GameManager.Resource.LoadSprite(_dialoguePath + _storyDataList[0].Scene);
+    }
+    private void InitSceneText()
+    {
+        _sceneText.text = _storyDataList[0].Scene.ToUpper(); 
     }
 
     public void Run()
     {
         if (_state == state.option) return;
-        ChangeDialogue();
+        if(_typingEffect.IsTypingNull()) ChangeDialogue();
         if (IsFinishDialogue())
         {
             Hide();
             return;
         }
-
-        switch (_storyDataList[_currentIdx].Type)
+        
+        if (_storyDataList[_currentIdx].Type == "Option" && _storyDataList == GameManager.Data.StoryData[_nextId]) _state = state.option;
+        switch (_state)
         {
-            case "Dialogue":
+            case state.dialogue:
                 ShowDialogue();
                 break;
-            case "Option":
+            case state.option:
                 ShowOption();
                 break;
         }
@@ -117,7 +113,8 @@ public class DialogueView : UIView
             ++_currentIdx;
         else if (!_storyDataList[_currentIdx].Goto.IsUnityNull())
         {
-            GotoId(_storyDataList[_currentIdx].Goto);
+            _nextId = _storyDataList[_currentIdx].Goto;
+            GotoId(_nextId);
             ChangeDialogue();
         }
         else
@@ -127,24 +124,67 @@ public class DialogueView : UIView
     private void ShowDialogue()
     {
         _state = state.dialogue;
+        ChangeCharacterImg();
         ChangeTexts();
-        ChangeFocusCharacterImg();
     }
 
     private void ChangeTexts()
     {
-        _nameText.text = _storyDataList[_currentIdx].Character;
-        _dialogueText.text = _storyDataList[_currentIdx].Text;
+        if (_storyDataList[_currentIdx].Character == "None")
+            _nameText.text = "";
+        else
+            _nameText.text = _storyDataList[_currentIdx].Character;
+        _typingEffect.StartTyping(_storyDataList[_currentIdx].Text);
     }
 
-    private void ChangeFocusCharacterImg()
+    private void ChangeCharacterImg()
     {
+        string characterName = _storyDataList[_currentIdx].Character+_storyDataList[_currentIdx].State;
+        bool isNew = true;
+
+        if (_isTurnOffLastImg)
+        {
+            _lastImg.sprite = GameManager.Resource.LoadSprite(_dialoguePath + "NoneIdle");
+            _isTurnOffLastImg = false;
+        }
         foreach (var img in _characterImgList)
         {
-            if (img.sprite.name == _storyDataList[_currentIdx].Character + _storyDataList[_currentIdx].State)
-                img.color = new Color(1, 1, 1, 1f);
+            
+            if (img.sprite.name == characterName)
+            {
+                img.color = Color.white;
+                isNew = false;
+            }
             else
+            {
                 img.color = new Color(1, 1, 1, 0.5f);
+            }
+        }
+        
+        if (isNew)
+        {
+            foreach (var img in _characterImgList)
+            {
+                if (img.sprite.name == "NoneIdle")
+                {
+                    img.sprite = GameManager.Resource.LoadSprite(_dialoguePath + characterName);
+                    img.color = Color.white;
+                    break;
+                }
+            }
+        }
+        
+        if (_storyDataList[_currentIdx].Active == "false")
+        {
+            foreach (var img in _characterImgList)
+            {
+                if (img.sprite.name == characterName)
+                {
+                    _lastImg = img;
+                    _isTurnOffLastImg = true;
+                    break;
+                }
+            }
         }
     }
 
@@ -164,7 +204,7 @@ public class DialogueView : UIView
         optionObj.GetComponent<RectTransform>().anchoredPosition =
             new Vector3(Screen.width * 0.5f, Screen.height * 0.5f - 60 * GetOptionCount() * i + 60 * GetOptionCount());
         optionObj.transform.parent = _optionPanel.transform;
-        optionObj.GetComponent<Button>().onClick.AddListener(() => SelectOption(_storyDataList[idx].Goto));
+        optionObj.GetComponent<Button>().onClick.AddListener(() => SelectOption(_storyDataList[idx].Goto, idx));
         optionObj.GetComponentInChildren<TextMeshProUGUI>().text = _storyDataList[idx].Text;
         optionObj.SetActive(true);
     }
@@ -172,10 +212,11 @@ public class DialogueView : UIView
     {
         return _storyDataList.Count - _currentIdx;
     }
-    private void SelectOption(string id)
+    private void SelectOption(string id, int idx)
     {
-        GotoId(id);
-        ChangeDialogue();
+        _currentIdx = idx;
+        _nextId = id;
+        _state = state.dialogue;
         ShowDialogue();
         CloseOptions();
     }

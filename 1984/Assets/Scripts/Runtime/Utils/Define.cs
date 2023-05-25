@@ -49,6 +49,7 @@ namespace Structs
         public string State { get; set;}
         public string Text { get;  set;}
         public string Scene { get;  set;}
+        public string Active { get; set; }
     }
 } 
 
