@@ -12,20 +12,16 @@ public class JumpState : IState
     private readonly float jumpForce = 25f;
     private float keyHorizontal;
 
-    private Animator animator;
-
 
     public JumpState(PlayerStateController playerStateController, PlayerMoveTracker playerMoveTracker, Rigidbody2D rigidbody2D)
     {
         this.stateController = playerStateController;
         this.moveTracker = playerMoveTracker;
         this.rigidbody = rigidbody2D;
-        animator = stateController.GetComponent<Animator>();
     }
 
     public void Enter()
     {
-        animator.SetTrigger("isJumping");
         //Jump
         rigidbody.velocity = new Vector2(rigidbody.velocity.x, jumpForce);
         //Debug.Log("Jump Enter()");

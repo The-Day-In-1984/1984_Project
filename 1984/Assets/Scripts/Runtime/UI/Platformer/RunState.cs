@@ -16,14 +16,12 @@ public class RunState : IState
 
     private GameObject ladder;
     public Vector3 ladderPos;
-    private Animator animator;
 
     public RunState(PlayerStateController playerStateController, PlayerMoveTracker playerMoveTracker, Rigidbody2D rigidbody2D)
     {
         this.stateController = playerStateController;
         this.moveTracker = playerMoveTracker;
         this.rigidbody = rigidbody2D;
-        animator = stateController.GetComponent<Animator>();
     }
 
     public void Enter()
@@ -32,7 +30,6 @@ public class RunState : IState
         playerPos = stateController.transform.position;
         stateController.transform.localScale = moveTracker.isRight? new Vector3(1f, 1f, 1f): new Vector3(-1f, 1f, 1f);
         playerScale = new Vector3(1f, 1f, 1f);
-        animator.SetBool("isRunning", true);
     }
 
     public void Execute()
@@ -82,6 +79,5 @@ public class RunState : IState
     public void Exit()
     {
         //Debug.Log("Run Exit()");
-        animator.SetBool("isRunning", false);
     }
 }

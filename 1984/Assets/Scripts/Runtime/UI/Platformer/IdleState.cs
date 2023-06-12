@@ -15,14 +15,12 @@ public class IdleState : IState
     private GameObject ladder;
     public Vector3 playerPos;
     public Vector3 ladderPos;
-    private Animator animator;
 
     public IdleState(PlayerStateController playerStateController, PlayerMoveTracker playerMoveTracker, Rigidbody2D rigidbody2D)
     {
         this.stateController = playerStateController;
         this.moveTracker = playerMoveTracker;
         this.rigidbody = rigidbody2D;
-        animator = stateController.GetComponent<Animator>();
     }
 
     public void Enter()
