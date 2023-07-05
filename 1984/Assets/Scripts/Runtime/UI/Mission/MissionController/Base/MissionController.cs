@@ -46,7 +46,7 @@ public class MissionController : MonoBehaviour
     
     protected async void MissionFail()
     {
-        GameManager.Data.SetReliability(-10);
+        GameManager.Data.SetReliability(-5);
         IsComplete = true;
         
         SoundManager.instance.PlayEffect("Mission_Fail");
