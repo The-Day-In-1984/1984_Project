@@ -29,7 +29,7 @@ public class MissionController : MonoBehaviour
     
     protected virtual void CheckMissionFail()
     {
-       
+        
     }
     
     protected async void MissionComplete()
@@ -55,7 +55,7 @@ public class MissionController : MonoBehaviour
         
         _view.Hide();
     }
-    
+
     public async Task MissionComplete(Action callBack)
     {
         while (!IsComplete)
