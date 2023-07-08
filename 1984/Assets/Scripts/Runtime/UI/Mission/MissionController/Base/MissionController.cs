@@ -29,7 +29,7 @@ public class MissionController : MonoBehaviour
     
     protected virtual void CheckMissionFail()
     {
-       
+        
     }
     
     protected async void MissionComplete()
@@ -46,7 +46,7 @@ public class MissionController : MonoBehaviour
     
     protected async void MissionFail()
     {
-        GameManager.Data.SetReliability(-10);
+        GameManager.Data.SetReliability(-5);
         IsComplete = true;
         
         SoundManager.instance.PlayEffect("Mission_Fail");
@@ -55,7 +55,7 @@ public class MissionController : MonoBehaviour
         
         _view.Hide();
     }
-    
+
     public async Task MissionComplete(Action callBack)
     {
         while (!IsComplete)

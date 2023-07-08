@@ -66,7 +66,6 @@ public class SoundManager : MonoBehaviour
         
         foreach (var sfx in sfxList)
         {
-            Debug.Log(sfx.name);
             _effectClips.Add(sfx.name, sfx);
         }
     }

@@ -10,6 +10,12 @@ public class PlatformerViewController : MonoBehaviour
 
     private void Start()
     {
-        playerData.Reliability.Value = 100;
+        playerData.Reliability.Value = 50;
+        playerData.Timer.Value = 500;
+    }
+
+    private void Update()
+    {
+        playerData.Timer.Value -= Time.deltaTime;
     }
 }

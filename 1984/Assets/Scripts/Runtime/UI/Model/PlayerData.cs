@@ -5,6 +5,7 @@ public class PlayerData : ScriptableObject
 {
     private Data<int> _reliability = new Data<int>();
     private Data<bool> _isMission = new Data<bool>();
+    private Data<float> _timer = new Data<float>();
 
     public Data<int> Reliability
     {
@@ -21,6 +22,15 @@ public class PlayerData : ScriptableObject
         set
         {
             _isMission.Value = value.Value;
+        }
+    }
+    
+    public Data<float> Timer
+    {
+        get { return _timer;}
+        set
+        {
+            _timer.Value = value.Value;
         }
     }
 }
