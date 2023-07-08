@@ -57,7 +57,14 @@ public class DialogueView : UIView
     }
     public override void Hide()
     {
+        SetId();
         GameManager.UI.ChangeState(GameState.Platformer);
+    }
+    private void SetId()
+    {
+        _nextId = "1";
+        GameManager.Data._curDialogueId = _nextId;
+        Debug.Log(GameManager.Data._curDialogueId);
     }
     
     public void StartDialogue(string id)
