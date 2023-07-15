@@ -8,8 +8,7 @@ public class Telescreen : MonoBehaviour
     public bool isVisible = false; // 텔레스크린이 범위에 있는지
     private bool nowVisible;
     private Transform transform;
-    public GameObject Player; 
-    public Camera camera;
+    private Camera camera;
     [HideInInspector] public PlayerMoveTracker playerMoveTracker;
  
     [Header("State Time Setting")]
@@ -24,7 +23,8 @@ public class Telescreen : MonoBehaviour
 
     private void Start()
     {
-        playerMoveTracker = Player.GetComponent<PlayerMoveTracker>();
+        playerMoveTracker = GameObject.Find("Winston").GetComponent<PlayerMoveTracker>();
+        camera = GameObject.Find("Main Camera").GetComponent<Camera>();
         transform = this.gameObject.transform;
         stateDictinoary.Add(TeleScreenType.Ready, new TeleScreen.ReadyState(this));
         stateDictinoary.Add(TeleScreenType.On, new TeleScreen.OnState(this));

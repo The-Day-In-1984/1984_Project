@@ -5,11 +5,11 @@ using Enums;
   
 public class PlayerStateController : MonoBehaviour
 {
-    public PLAYER_STATE currentPlayerState;
     public IState currentState;
     private Rigidbody2D rigidbody2D;
-    public Transform transform;
-    public PlayerMoveTracker playerMoveTracker;
+    [HideInInspector] public PLAYER_STATE currentPlayerState;
+    [HideInInspector] public Transform transform;
+    [HideInInspector] public PlayerMoveTracker playerMoveTracker;
 
     private readonly Dictionary<PLAYER_STATE, IState> stateDictionary = new Dictionary<PLAYER_STATE, IState>();
 
@@ -25,9 +25,6 @@ public class PlayerStateController : MonoBehaviour
 
         stateDictionary.Add(PLAYER_STATE.IDLE, new IdleState(this, playerMoveTracker, rigidbody2D));
         stateDictionary.Add(PLAYER_STATE.RUN, new RunState(this, playerMoveTracker, rigidbody2D));
-        stateDictionary.Add(PLAYER_STATE.JUMP, new JumpState(this, playerMoveTracker, rigidbody2D));
-        stateDictionary.Add(PLAYER_STATE.CLIMB, new ClimbState(this, playerMoveTracker, rigidbody2D));
-
 
         transform = this.gameObject.transform;
     }

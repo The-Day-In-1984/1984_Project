@@ -39,12 +39,6 @@ public class PlayerAnimationController : MonoBehaviour
             case RunState:
                 PlayRunAnimation();
                 break;
-            case JumpState:
-                PlayJumpAnimation();
-                break;
-            case ClimbState:
-                PlayClimbAnimation();
-                break;
         }
 
         previousState = stateController.currentState; // 상태 업데이트
@@ -57,13 +51,5 @@ public class PlayerAnimationController : MonoBehaviour
     private void PlayRunAnimation()
     {
         animator.Play("Run");
-    }
-    private void PlayJumpAnimation()
-    {
-        animator.Play("Jump");
-    }
-    private void PlayClimbAnimation()
-    {
-        animator.Play("Climb");
     }
 }
