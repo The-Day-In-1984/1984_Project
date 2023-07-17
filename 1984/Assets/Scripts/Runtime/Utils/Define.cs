@@ -3,9 +3,7 @@
     public enum PLAYER_STATE
     {
         IDLE,
-        RUN,
-        JUMP,
-        CLIMB
+        RUN
     }
 
     //test
