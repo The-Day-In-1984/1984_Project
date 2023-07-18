@@ -34,6 +34,7 @@ public class MissionController : MonoBehaviour
     
     protected async void MissionComplete()
     {
+        GameManager.Data.IsMission = false;
         GameManager.Data.SetReliability(10);
         IsComplete = true;
         
@@ -46,6 +47,7 @@ public class MissionController : MonoBehaviour
     
     protected async void MissionFail()
     {
+        GameManager.Data.IsMission = false;
         GameManager.Data.SetReliability(-5);
         IsComplete = true;
         

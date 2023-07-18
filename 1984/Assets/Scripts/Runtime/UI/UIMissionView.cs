@@ -10,4 +10,16 @@ public class UIMissionView : UIView
             Hide();
         }
     }
+    
+    public override void Show()
+    {
+        base.Show();
+        GameManager.Data.IsMission = true;
+    }
+    
+    public override void Hide()
+    {
+        base.Hide();
+        GameManager.Data.IsMission = false;
+    }
 }

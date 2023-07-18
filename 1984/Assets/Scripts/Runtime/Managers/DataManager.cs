@@ -10,6 +10,7 @@ public class DataManager
     
     // Temp
     public string _curDialogueId { get; set; } = "0";
+    public bool IsMission { get; set; } = false;
 
     private const string PlayerDataPath = "Data/PlayerData";
 
