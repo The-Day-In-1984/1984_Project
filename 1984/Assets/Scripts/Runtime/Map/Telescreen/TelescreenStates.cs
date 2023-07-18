@@ -21,7 +21,7 @@ namespace TeleScreen
 
         public void OnEnter()
         {
-            Debug.Log("ReadyState OnEnter");
+            //Debug.Log("ReadyState OnEnter");
             curTime = 0f;
             targetTime = telescreen.readyTime;
         }
@@ -38,7 +38,6 @@ namespace TeleScreen
             }
             
         }
-
         public void OnExit()
         {
             //Debug.Log("ReadyState OnExit");
@@ -52,6 +51,8 @@ namespace TeleScreen
         private PlayerMoveTracker playerMoveTracker;
         private float curTime;
         private float targetTime;
+        private bool isReliabilityChecked;
+
         public OnState(Telescreen telescreen)
         {
             this.telescreen = telescreen;
@@ -62,7 +63,9 @@ namespace TeleScreen
             curTime = 0f;
             targetTime = telescreen.onTime;
             playerMoveTracker.isTraces = true;
-            
+            isReliabilityChecked = false;
+
+
             GameManager.Data.SetIsMission(true);
         }
         
@@ -71,13 +74,19 @@ namespace TeleScreen
         {
             curTime += Time.deltaTime;
 
-            Debug.Log("OnState Excute");
+            //Debug.Log("OnState Excute");
             if (curTime >= targetTime)
             {
                 telescreen.ChangeState(Enums.TeleScreenType.Off);
             }
+            
+            if (GameManager.Data.IsMission && !isReliabilityChecked)
+            {
+                GameManager.Data.SetReliability(-5);
+                isReliabilityChecked = true;
+            }
+            
         }
-
         public void OnExit()
         {
             //Debug.Log("OnState OnExit");
@@ -101,7 +110,7 @@ namespace TeleScreen
         }
         public void OnEnter()
         {
-            Debug.Log("OffState OnEnter");
+            //Debug.Log("OffState OnEnter");
             curTime = 0f;
             minTime = telescreen.offMinTime;
             maxTime = telescreen.offMaxTime;
