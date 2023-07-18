@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Enums;
- 
+
 public class RunState : IState
 {
     private PlayerStateController stateController;
     private PlayerMoveTracker moveTracker;
     private Rigidbody2D rigidbody;
     private float keyHorizontal;
-    private Vector3 playerPos;
-    private Vector3 playerScale;
     private float speed;
 
     public RunState(PlayerStateController playerStateController, PlayerMoveTracker playerMoveTracker, Rigidbody2D rigidbody2D)
@@ -24,10 +22,6 @@ public class RunState : IState
     {
         //Debug.Log("Run Enter()");
         speed = moveTracker.runSpeed;
-
-        playerPos = stateController.transform.position;
-        stateController.transform.localScale = moveTracker.isRight? new Vector3(1f, 1f, 1f): new Vector3(-1f, 1f, 1f);
-        playerScale = new Vector3(1f, 1f, 1f);
     }
 
     public void Execute()
@@ -38,12 +32,18 @@ public class RunState : IState
 
     public void FixedExecute()
     {
-        if (keyHorizontal != 0)
+        if (keyHorizontal > 0)
         {
+            stateController.transform.localScale = new Vector3(1f, 1f, 1f);
             //Run           
             rigidbody.velocity = new Vector2(keyHorizontal * speed, rigidbody.velocity.y);
         }
-
+        else if (keyHorizontal < 0)
+        {
+            stateController.transform.localScale = new Vector3(-1f, 1f, 1f);
+            //Run           
+            rigidbody.velocity = new Vector2(keyHorizontal * speed, rigidbody.velocity.y);
+        }
         else
         {
             //Idle

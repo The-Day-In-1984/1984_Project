@@ -7,7 +7,6 @@ public class PlayerMoveTracker : MonoBehaviour
     [Header("Move Setting")]
     public float runSpeed = 20.0f;
 
-    [HideInInspector] public bool isRight;
     [HideInInspector] public bool isTraces;
     private CapsuleCollider2D coll;
     private LayerMask groundLayer;
@@ -18,8 +17,6 @@ public class PlayerMoveTracker : MonoBehaviour
     { 
         coll = GetComponent<CapsuleCollider2D>(); 
         groundLayer = LayerMask.GetMask("Ground");
-        isRight = true;
-
     }
 
 }
