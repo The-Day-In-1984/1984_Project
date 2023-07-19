@@ -10,6 +10,8 @@ public class RunState : IState
     private Rigidbody2D rigidbody;
     private float keyHorizontal;
     private float speed;
+    private readonly Vector3 _localScaleR = new(1f, 1f, 1f);
+    private readonly Vector3 _localScaleL = new(-1f, 1f, 1f);
 
     public RunState(PlayerStateController playerStateController, PlayerMoveTracker playerMoveTracker, Rigidbody2D rigidbody2D)
     {
@@ -28,32 +30,32 @@ public class RunState : IState
     {
         //Debug.Log("Run Execute()");
         keyHorizontal = Input.GetAxisRaw("Horizontal");
+
+
     }
 
     public void FixedExecute()
     {
         if (keyHorizontal > 0)
         {
-            stateController.transform.localScale = new Vector3(1f, 1f, 1f);
-            //Run           
-            rigidbody.velocity = new Vector2(keyHorizontal * speed, rigidbody.velocity.y);
+            stateController.transform.localScale = _localScaleR;
         }
         else if (keyHorizontal < 0)
         {
-            stateController.transform.localScale = new Vector3(-1f, 1f, 1f);
-            //Run           
-            rigidbody.velocity = new Vector2(keyHorizontal * speed, rigidbody.velocity.y);
+            stateController.transform.localScale = _localScaleL;
         }
         else
         {
             //Idle
-            rigidbody.velocity = new Vector2(0f, rigidbody.velocity.y);
             stateController.ChangeState(PLAYER_STATE.IDLE);
         }
 
+        //Run
+        rigidbody.velocity = new Vector2(keyHorizontal * speed, rigidbody.velocity.y);
     }
 
-    public void Exit()
+
+        public void Exit()
     {
         //Debug.Log("Run Exit()");
     }
