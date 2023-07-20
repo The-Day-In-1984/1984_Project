@@ -89,4 +89,23 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+    public void NextScene()
+    {
+        if (SceneManager.GetActiveScene().name == "Game_Title")
+        {
+            
+            GameManager.UI.ChangeState(GameState.Platformer);
+        }
+        else if (SceneManager.GetActiveScene().name == "Game_Platformer")
+        {
+            
+            GameManager.UI.ChangeState(GameState.Dialogue);
+        }
+        else
+        {
+            
+            GameManager.UI.ChangeState(GameState.Ttitle);
+        }
+    }
 }
