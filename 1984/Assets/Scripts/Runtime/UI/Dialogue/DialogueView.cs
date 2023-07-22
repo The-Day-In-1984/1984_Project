@@ -62,7 +62,7 @@ public class DialogueView : UIView
     }
     private void SetId()
     {
-        _nextId = "1";
+        _nextId = (Int32.Parse(_nextId) + 1).ToString() ;
         GameManager.Data._curDialogueId = _nextId;
         Debug.Log(GameManager.Data._curDialogueId);
     }
@@ -236,4 +236,9 @@ public class DialogueView : UIView
         _optionGameObjectList.Clear();
         _optionPanel.SetActive(false);
     }
+    public void Skip()
+    {
+        Hide();
+    }
+    
 }
