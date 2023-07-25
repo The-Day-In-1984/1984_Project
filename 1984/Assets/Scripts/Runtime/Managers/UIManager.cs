@@ -13,6 +13,8 @@ public class UIManager
     private readonly Dictionary<string, UIView> uiViewDictionary = new Dictionary<string, UIView>();
     
     private readonly Dictionary<string, UIMissionView> _uiMissionDictionary = new Dictionary<string, UIMissionView>();
+    
+    public float TextSpeed { get; set;} = 0.55f;
 
     public void Init()
     {

@@ -14,6 +14,7 @@ public class SettingViewController : MonoBehaviour
         masterVolumeSlider.value = SoundManager.instance.GetVolume("Master");
         bgmVolumeSlider.value = SoundManager.instance.GetVolume("BGM");
         effectVolumeSlider.value = SoundManager.instance.GetVolume("Effect");
+        textSpeedSlider.value = GameManager.UI.TextSpeed;
     }
 
     private void Update()
@@ -21,6 +22,7 @@ public class SettingViewController : MonoBehaviour
         ControlVolume(masterVolumeSlider, "Master");
         ControlVolume(bgmVolumeSlider, "BGM");
         ControlVolume(effectVolumeSlider, "Effect");
+        ControlTextSpeed(textSpeedSlider);
     }
 
     private void ControlVolume(Slider slider, string soundType)
@@ -29,5 +31,10 @@ public class SettingViewController : MonoBehaviour
 
         if (volume <= -30f) SoundManager.instance.SetVolume(soundType,-80);
         else SoundManager.instance.SetVolume(soundType,volume);
+    }
+    private void ControlTextSpeed(Slider slider)
+    {
+        float speed = slider.value;
+        GameManager.UI.TextSpeed = speed;
     }
 }
