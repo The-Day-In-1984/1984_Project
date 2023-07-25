@@ -108,4 +108,8 @@ public class GameManager : MonoBehaviour
             GameManager.UI.ChangeState(GameState.Ttitle);
         }
     }
+    public void OpenPauseView()
+    {
+        GameManager.UI.PopupPush("UIView_Pause");
+    }
 }

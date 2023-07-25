@@ -1,4 +1,5 @@
 ﻿using System;
+using Enums;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -36,5 +37,9 @@ public class SettingViewController : MonoBehaviour
     {
         float speed = slider.value;
         GameManager.UI.TextSpeed = speed;
+    }
+    public void OnExitButtonClick()
+    {
+        GameManager.UI.ChangeState(GameState.Ttitle);
     }
 }
