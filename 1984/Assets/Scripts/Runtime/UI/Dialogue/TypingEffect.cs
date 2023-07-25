@@ -6,8 +6,6 @@ using System.Text;
 public class TypingEffect : MonoBehaviour
 {
     private TextMeshProUGUI _textMeshPro;
-    private float _typingSpeed = 0.05f;
-
     private string _currentText;
     private Coroutine _typingCoroutine;
 
@@ -51,7 +49,7 @@ public class TypingEffect : MonoBehaviour
         for (int i = 0; i < text.Length; i++)
         {
             _textMeshPro.text += text[i];
-            yield return new WaitForSeconds(_typingSpeed);
+            yield return new WaitForSeconds(0.02f / GameManager.UI.TextSpeed);
         }
 
         // 타이핑 완료 후, 코루틴을 null로 설정합니다.

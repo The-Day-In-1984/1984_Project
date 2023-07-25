@@ -29,7 +29,7 @@ public class TitleViewController : MonoBehaviour
     
     private void OnSettingButtonClick()
     {
-        Debug.Log("Setting");
+        GameManager.UI.PopupPush("UIView_Setting");
     }
     
     private void OnExitButtonClick()
