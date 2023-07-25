@@ -1472,7 +1472,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 682191246}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -65.86197, y: 1.8768201, z: -8.9}
+  m_LocalPosition: {x: -77.50641, y: 1.8825598, z: -8.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1507,7 +1507,7 @@ AudioSource:
   m_GameObject: {fileID: 720459261}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7663919328419426909, guid: 79054a47747ea344587194962ef04344, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -1603,7 +1603,7 @@ AudioSource:
   m_GameObject: {fileID: 720459261}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 7633706093157063541, guid: 79054a47747ea344587194962ef04344, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -1702,7 +1702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 469d80d19e2bb1a4f8d2cd86202c6960, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioMixer: {fileID: 24100000, guid: 89d1450d488061b4092c3aa2c2c1ef55, type: 2}
+  audioMixer: {fileID: 24100000, guid: 79054a47747ea344587194962ef04344, type: 2}
   bgmSource: {fileID: 720459263}
   effectSource: {fileID: 720459262}
   bgmClip: {fileID: 8300000, guid: 918aba8a4e6b1274989b542f8a011b7d, type: 3}
@@ -3940,6 +3940,34 @@ PrefabInstance:
     - target: {fileID: 1549661294903607924, guid: ecd43189cfa0ba644a9c28566ea1e80b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712940070743015570, guid: ecd43189cfa0ba644a9c28566ea1e80b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712940070743015570, guid: ecd43189cfa0ba644a9c28566ea1e80b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712940070743015570, guid: ecd43189cfa0ba644a9c28566ea1e80b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1491743129}
+    - target: {fileID: 4712940070743015570, guid: ecd43189cfa0ba644a9c28566ea1e80b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712940070743015570, guid: ecd43189cfa0ba644a9c28566ea1e80b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenPauseView
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712940070743015570, guid: ecd43189cfa0ba644a9c28566ea1e80b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712940070743015570, guid: ecd43189cfa0ba644a9c28566ea1e80b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7561321526692986144, guid: ecd43189cfa0ba644a9c28566ea1e80b, type: 3}
       propertyPath: m_Name
