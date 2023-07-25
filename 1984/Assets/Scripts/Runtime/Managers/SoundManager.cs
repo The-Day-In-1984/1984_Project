@@ -50,16 +50,18 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void SetBGMVolume(float volume)
+    public void SetVolume(string soundType,float volume)
     {
-        audioMixer.SetFloat("BGMVolume", volume);
+        audioMixer.SetFloat(soundType, volume);
     }
-
-    public void SetEffectVolume(float volume)
+    
+    public float GetVolume(string soundType)
     {
-        audioMixer.SetFloat("EffectVolume", volume);
+        if (audioMixer.GetFloat(soundType, out float volume))
+            return volume;
+        return 0f;
     }
-
+    
     private void EffectClipsLoad()
     {
         var sfxList = Resources.LoadAll<AudioClip>("Sounds/SFX/");
