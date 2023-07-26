@@ -6,7 +6,9 @@ public class BaseMission : MonoBehaviour, IMission
 {
     private MissionController _missionController;
     private MissionState _isMissionState;
-    
+
+    [field: SerializeField]
+    public int MissionOrder { get; set; }
     public event Action MissionCompleted;
     public event Action MissionFailed;
 

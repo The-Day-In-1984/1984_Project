@@ -20,6 +20,8 @@ public class MissionController : MonoBehaviour
         _missions.Add(mission);
         mission.MissionCompleted += CheckMissionComplete;
         mission.MissionFailed += CheckMissionFail;
+        
+        _missions.Sort( (x, y) => x.MissionOrder.CompareTo(y.MissionOrder));
     }
 
     // 미션 단계별 성공
