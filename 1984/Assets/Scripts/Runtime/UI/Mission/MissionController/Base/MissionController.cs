@@ -22,11 +22,13 @@ public class MissionController : MonoBehaviour
         mission.MissionFailed += CheckMissionFail;
     }
 
+    // 미션 단계별 성공
     protected virtual void CheckMissionComplete()
     {
        
     }
     
+    // 단계별 실패
     protected virtual void CheckMissionFail()
     {
         

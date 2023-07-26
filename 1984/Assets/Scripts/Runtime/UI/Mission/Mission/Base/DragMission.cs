@@ -12,6 +12,8 @@ public class DragMission : BaseMission, IDragHandler
     
     private DistanceLogic _distanceLogic;
 
+    public bool isDragStop;
+
     protected override void Awake()
     {
         base.Awake();
@@ -32,6 +34,14 @@ public class DragMission : BaseMission, IDragHandler
 
     private void MissionLogic(PointerEventData eventData)
     {
+        if (IsMissionState == MissionState.Complete || IsMissionState == MissionState.Fail)
+        {
+            if (isDragStop)
+            {
+                return;
+            }
+        }
+        
         PositionUpdate(eventData.position);
 
         if (IsMissionState == MissionState.InProgress)
