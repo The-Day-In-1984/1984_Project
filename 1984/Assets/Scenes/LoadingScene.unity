@@ -241,7 +241,7 @@ PrefabInstance:
     - target: {fileID: 6114738440165366391, guid: 5013d1110792c6548bb53c81a84f2cd9, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -582415505082735082, guid: 96eb6c3d680734a4d981a67726c598dd, type: 2}
+      objectReference: {fileID: -4013191172798612519, guid: 96eb6c3d680734a4d981a67726c598dd, type: 2}
     - target: {fileID: 7561321526692986144, guid: 5013d1110792c6548bb53c81a84f2cd9, type: 3}
       propertyPath: m_Name
       value: UIView_Loading

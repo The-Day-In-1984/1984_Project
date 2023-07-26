@@ -19,7 +19,16 @@ public class PlatformerState : IUIState
 {
     public async void OnEnter()
     {
-        LoadingSceneManager.LoadScene("Game_Platformer","DAY 1", "원스턴의 집");
+        if (GameManager.Instance.CurrentDay == 0)
+        {
+            LoadingSceneManager.LoadScene("Game_Platformer","DAY 1", "원스턴의 집");
+        }
+        else if (GameManager.Instance.CurrentDay == 0)
+        {
+            LoadingSceneManager.LoadScene("Game_Platformer","DAY 2", "파슨스의 집");
+        }
+
+        
     }
 
     public void OnExit()
@@ -37,7 +46,6 @@ public class DialogueState : IUIState
 
     public void OnExit()
     {
-       GameManager.Instance.CurrentDay++;
     }
 }
 

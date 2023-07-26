@@ -7,16 +7,12 @@ public class PlatformerController : MonoBehaviour
 {
     // temp
     [SerializeField] private GameObject[] _platforms;
-
-    /*
+    
     private void OnEnable()
     {
         DisablePlatforms();
         EnableCurrentDayPlatforms();
-        
-        Debug.Log(GameManager.Instance.CurrentDay + "!!!!!!!!!!!!!!!!");
     }
-    */
     
     private void DisablePlatforms()
     {

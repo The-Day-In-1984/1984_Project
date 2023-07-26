@@ -25,10 +25,10 @@ public class GameManager : MonoBehaviour
     public int CurrentDay
     {
         get { return currentday;}
-        set { Mathf.Clamp(value, 0, 14); }
+        set { currentday = value; }
     }
 
-    private int currentday;
+    private int currentday = -1;
     
     static void Init()
     {

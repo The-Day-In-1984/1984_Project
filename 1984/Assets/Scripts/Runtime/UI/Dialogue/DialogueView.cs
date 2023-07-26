@@ -64,6 +64,7 @@ public class DialogueView : UIView
     {
         _nextId = (Int32.Parse(_nextId) + 1).ToString() ;
         GameManager.Data._curDialogueId = _nextId;
+        GameManager.Instance.CurrentDay++;
         Debug.Log(GameManager.Data._curDialogueId);
     }
     
@@ -75,6 +76,7 @@ public class DialogueView : UIView
         _optionPanel.SetActive(false);
         _optionGameObject.SetActive(false);
     }
+    
     private void GotoId(string id)
     {
         _currentIdx = -1;
