@@ -206,6 +206,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIMission_Kids
       objectReference: {fileID: 0}
+    - target: {fileID: 3936574713856506119, guid: 068924af3a626f845b26a8f83a9ce08f, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: f77b611d97f092a4d87abb062d7b5a98, type: 2}
     - target: {fileID: 4714953928185955861, guid: 068924af3a626f845b26a8f83a9ce08f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -290,6 +294,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5975425532503603531, guid: 068924af3a626f845b26a8f83a9ce08f, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: f77b611d97f092a4d87abb062d7b5a98, type: 2}
+    - target: {fileID: 6763792124433588246, guid: 068924af3a626f845b26a8f83a9ce08f, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: f77b611d97f092a4d87abb062d7b5a98, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 068924af3a626f845b26a8f83a9ce08f, type: 3}
 --- !u!224 &4546061528841597775 stripped

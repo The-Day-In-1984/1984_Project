@@ -238,6 +238,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: UIMissionView, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 1240198896720724790, guid: 3606bd6f4987672468ee6f8562abc9df, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: f77b611d97f092a4d87abb062d7b5a98, type: 2}
     - target: {fileID: 3274241777966905857, guid: 3606bd6f4987672468ee6f8562abc9df, type: 3}
       propertyPath: m_Name
       value: UIMission_ParsonsTelephone
@@ -326,6 +330,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8300550569375184110, guid: 3606bd6f4987672468ee6f8562abc9df, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: f77b611d97f092a4d87abb062d7b5a98, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3606bd6f4987672468ee6f8562abc9df, type: 3}
 --- !u!224 &4033227192172774273 stripped
