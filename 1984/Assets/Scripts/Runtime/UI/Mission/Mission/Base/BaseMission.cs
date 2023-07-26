@@ -9,6 +9,9 @@ public class BaseMission : MonoBehaviour, IMission
 
     [field: SerializeField]
     public int MissionOrder { get; set; }
+    
+    [field: SerializeField]
+    public bool IsIgnore { get; set; }
     public event Action MissionCompleted;
     public event Action MissionFailed;
 

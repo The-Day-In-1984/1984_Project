@@ -226,6 +226,18 @@ PrefabInstance:
       propertyPath: onCompleted.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 234659670512064301, guid: 3606bd6f4987672468ee6f8562abc9df, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6769548955077435424}
+    - target: {fileID: 234659670512064301, guid: 3606bd6f4987672468ee6f8562abc9df, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Hide
+      objectReference: {fileID: 0}
+    - target: {fileID: 234659670512064301, guid: 3606bd6f4987672468ee6f8562abc9df, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIMissionView, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 3274241777966905857, guid: 3606bd6f4987672468ee6f8562abc9df, type: 3}
       propertyPath: m_Name
       value: UIMission_ParsonsTelephone
