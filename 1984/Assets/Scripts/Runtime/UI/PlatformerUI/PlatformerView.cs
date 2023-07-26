@@ -9,8 +9,7 @@ public class PlatformerView : UIView
     [Header("Player Data")]
     [SerializeField] private PlayerData playerData;
     [SerializeField] private Slider reliabilitySlider;
-    [SerializeField] private Color reliabilityColorLow;
-    [SerializeField] private Color reliabilityColorHigh;
+    [SerializeField] private Slider contributionsSlider;
 
     [Header("Timer")]
     [SerializeField] private TextMeshProUGUI timerText;
@@ -24,21 +23,27 @@ public class PlatformerView : UIView
     private void OnEnable()
     {
         playerData.Reliability.onChange += UpdateReliabilityUI;
+        playerData.Contributions.onChange += UpdateContributions;
         playerData.Timer.onChange += UpdateTimerUI;
     }
     
     private void OnDisable()
     {
         playerData.Reliability.onChange -= UpdateReliabilityUI;
+        playerData.Contributions.onChange -= UpdateContributions;
         playerData.Timer.onChange -= UpdateTimerUI;
     }
 
-    private void UpdateReliabilityUI(int hp)
+    private void UpdateReliabilityUI(int value)
     {
-        reliabilitySlider.value = hp;
-        //_sliderImage.color = Color.Lerp(reliabilityColorLow, reliabilityColorHigh, reliabilitySlider.normalizedValue);
+        reliabilitySlider.value = value;
     }
-    
+
+    private void UpdateContributions(int value)
+    {
+        contributionsSlider.value = value;
+    }
+
     private void UpdateTimerUI(float timer)
     {
         int minutes = Mathf.FloorToInt(timer / 60);

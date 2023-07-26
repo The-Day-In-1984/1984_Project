@@ -44,4 +44,9 @@ public class DataManager
     {
         return _playerData.IsMission.Value;
     }
+
+    public void SetContributions(int value)
+    {
+        _playerData.Contributions.Value += value;
+    }
 }
