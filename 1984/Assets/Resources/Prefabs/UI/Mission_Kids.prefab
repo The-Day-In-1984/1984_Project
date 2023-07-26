@@ -207,6 +207,10 @@ PrefabInstance:
       value: "\uD558\uD558, \uB09C \uC0AC\uC0C1\uBC94\uC774 \uC544\uB2C8\uC57C. \uC624\uBE0C\uB77C\uC774\uC5B8\uB2D8\uAED8
         \uB9F9\uC138\uD558\uC9C0."
       objectReference: {fileID: 0}
+    - target: {fileID: 694667962061424977, guid: 068924af3a626f845b26a8f83a9ce08f, type: 3}
+      propertyPath: m_enableWordWrapping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3274241777966905857, guid: 068924af3a626f845b26a8f83a9ce08f, type: 3}
       propertyPath: m_Name
       value: UIMission_Kids
@@ -312,10 +316,18 @@ PrefabInstance:
       value: "\uD558\uD558, \uB09C \uC0AC\uC0C1\uBC94\uC774 \uC544\uB2C8\uC57C. \uBE45
         \uBE0C\uB77C\uB354\uB2D8\uAED8 \uB9F9\uC138\uD558\uC9C0.\r"
       objectReference: {fileID: 0}
+    - target: {fileID: 7044266199639991888, guid: 068924af3a626f845b26a8f83a9ce08f, type: 3}
+      propertyPath: m_enableWordWrapping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7227281856515330209, guid: 068924af3a626f845b26a8f83a9ce08f, type: 3}
       propertyPath: m_text
       value: "\uD558\uD558, \uB09C \uC0AC\uC0C1\uBC94\uC774 \uC544\uB2C8\uC57C. \uACE8\uB4DC\uC2A4\uD0C0\uC778\uB2D8\uAED8
         \uB9F9\uC138\uD558\uC9C0."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7227281856515330209, guid: 068924af3a626f845b26a8f83a9ce08f, type: 3}
+      propertyPath: m_enableWordWrapping
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 068924af3a626f845b26a8f83a9ce08f, type: 3}
