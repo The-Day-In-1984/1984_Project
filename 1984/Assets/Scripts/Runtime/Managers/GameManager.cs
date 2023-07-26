@@ -99,12 +99,10 @@ public class GameManager : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name == "Game_Platformer")
         {
-            
             GameManager.UI.ChangeState(GameState.Dialogue);
         }
         else
         {
-            
             GameManager.UI.ChangeState(GameState.Ttitle);
         }
     }

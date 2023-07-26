@@ -26,10 +26,14 @@ public class OrderNotFailMissionController : MissionController
     protected override void CheckMissionComplete()
     {
         base.CheckMissionComplete();
-
+        
         if (_currentMissionIndex < _missions.Count - 1)
         {
             _missions[++_currentMissionIndex].OnMissionInProgress();
+            if (_missions[_currentMissionIndex].IsIgnore)
+            {
+                _missions[_currentMissionIndex].OnMissionComplete();
+            }
         }
         else
         {
