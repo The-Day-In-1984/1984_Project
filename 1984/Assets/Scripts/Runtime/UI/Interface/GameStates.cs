@@ -37,7 +37,7 @@ public class DialogueState : IUIState
 
     public void OnExit()
     {
-       
+       GameManager.Instance.CurrentDay++;
     }
 }
 

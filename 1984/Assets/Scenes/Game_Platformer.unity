@@ -2997,6 +2997,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 014f930c302f33e4580f2558b74abc54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _platforms:
+  - {fileID: 2029877284}
+  - {fileID: 571485853250770580}
 --- !u!21 &1633650887
 Material:
   serializedVersion: 8
@@ -4637,6 +4640,16 @@ PolygonCollider2D:
   m_CorrespondingSourceObject: {fileID: 1374127436940783326, guid: b47df938994b32e43905fd28f7840fb6, type: 3}
   m_PrefabInstance: {fileID: 1374127438305046032}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2029877284 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1374127437879957280, guid: b47df938994b32e43905fd28f7840fb6, type: 3}
+  m_PrefabInstance: {fileID: 1374127438305046032}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &571485853250770580 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6229942645972519292, guid: 48fc16766958be84dbe884d56c45894e, type: 3}
+  m_PrefabInstance: {fileID: 5880399906783600616}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1374127438305046032
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4670,7 +4683,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1374127437879957281, guid: b47df938994b32e43905fd28f7840fb6, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1374127437879957281, guid: b47df938994b32e43905fd28f7840fb6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4735,7 +4748,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6229942645972519293, guid: 48fc16766958be84dbe884d56c45894e, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6229942645972519293, guid: 48fc16766958be84dbe884d56c45894e, type: 3}
       propertyPath: m_LocalPosition.x
